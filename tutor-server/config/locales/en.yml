@@ -1,0 +1,107 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  settings:
+    attributes:
+      excluded_ids:
+        name: 'Excluded exercise IDs'
+        help_block: 'Number or UUID, comma-separated, @Version optional'
+      import_real_salesforce_courses:
+        name: 'Import real Salesforce courses?'
+        help_block: 'Unchecked: limits to Denver University'
+      term_years_to_import:
+        name: 'Term years to import'
+        help_block: 'Comma-separated list of Salesforce-formatted term years, e.g. "2015 - 16 Spring, 2016 - 17 Fall", blank to disable import'
+      default_open_time:
+        name: 'Default task open time'
+        help_block: 'In the format HH:MM'
+      biglearn_student_clues_algorithm_name:
+        name: 'Biglearn algorithm for calculating Student CLUes'
+        labels:
+          biglearn_sparfa: SPARFA
+          local_query: Local Query
+      biglearn_teacher_clues_algorithm_name:
+        name: 'Biglearn algorithm for calculating Teacher CLUes'
+        labels:
+          biglearn_sparfa: SPARFA
+          local_query: Local Query
+      biglearn_assignment_spes_algorithm_name:
+        name: 'Biglearn algorithm for choosing Spaced Practice exercises'
+        labels:
+          student_driven_biglearn_sparfa: Student-Driven SPARFA
+          instructor_driven_biglearn_sparfa: Instructor-Driven SPARFA
+          student_driven_local_query: Student-Driven Local Query
+          instructor_driven_local_query: Instructor-Driven Local Query
+      biglearn_assignment_pes_algorithm_name:
+        name: 'Biglearn algorithm for choosing Personalized exercises'
+        labels:
+          biglearn_sparfa: SPARFA
+          local_query: Local Query
+      biglearn_practice_worst_areas_algorithm_name:
+        name: 'Biglearn algorithm for choosing exercises for Practice Worst Topics'
+        labels:
+          biglearn_sparfa: SPARFA
+          local_query: Local Query
+      default_due_time:
+        name: 'Default task due time'
+        help_block: 'In the format HH:MM'
+      course_appearance_codes:
+        name: 'Valid Course Appearance Codes'
+        help_block: 'As a Ruby Hash'
+      student_grace_period_days:
+        name: 'Student payment grace period'
+        help_block: 'In days; changes to this value only apply to students who enroll after the change'
+      pardot_toa_redirect:
+        name: 'TutorOnboardingA Redirect URL'
+        help_block: 'Where an arrival to /pardot/toa is redirected'
+      ga_tracking_codes:
+        name: 'Google Analytics tracking codes'
+        help_block: 'Can list multiple, comma-separated'
+      payments_enabled:
+        name: 'Payments Enabled?'
+        help_block: 'If unchecked, payments will not overdue, students will not be prompted to pay; useful if Payments site is down or has an issue'
+      response_validation_enabled:
+        name: 'Response Validation Enabled?'
+        help_block: If unchecked, free responses will not be sent to the validation server; useful if the server is down or has an issue'
+      response_validation_ui_enabled:
+        name: 'Response Validation UI Enabled?'
+        help_block: If unchecked, free responses will SILENTLY be sent to the validation server; no prompts will be displayed to the user
+      prebuilt_preview_course_count:
+        name: '# Prebuilt Preview Courses'
+        help_block: 'The number of prebuilt preview courses to keep at the ready'
+      default_is_lms_enabling_allowed:
+        name: 'Default for new course `is_lms_enabling_allowed`'
+        help_block: 'Changing this only changes the default value stored in new courses; to change existing courses, see the courses admin page'
+      raise_if_salesforce_user_missing:
+        name: 'Raise exception if Salesforce user is missing'
+        help_block: 'Raise an exception (and notify devs) if the Salesforce user is missing'
+      active_onboarding_salesforce_campaign_id:
+        name: 'Onboarding Campaign ID'
+        help_block: 'The current Salesforce campaign ID for onboarding'
+      active_nomad_onboarding_salesforce_campaign_id:
+        name: 'Nomad Onboarding Campaign ID'
+        help_block: 'The current Salesforce campaign ID for onboarding when we are creating new campaign members (cannot find an existing one)'
+      find_tutor_course_period_report_id:
+        name: 'Find Tutor Course Period Report ID'
+        help_block: 'The Salesforce ID for the "Find Tutor Course Period" Report'
+      teacher_student_enabled:
+        name: 'Can teachers become a student in their course?'

@@ -1,0 +1,84 @@
+<!-- nav tabs -->
+<% @page_header = "Edit Course" %>
+<%= render partial: 'layouts/bootstrap_tab_activate_on_load' %>
+
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active">
+    <a href="#main" aria-controls="main" role="tab" data-toggle="tab">
+      Edit course
+    </a>
+  </li>
+  <li role="presentation">
+    <a href="#teachers" aria-controls="teachers" role="tab" data-toggle="tab">
+      Teachers
+    </a>
+  </li>
+  <li role="presentation">
+    <a href="#content" aria-controls="content" role="tab" data-toggle="tab">
+      Course content
+    </a>
+  </li>
+  <li role="presentation">
+    <a href="#periods" aria-controls="periods" role="tab" data-toggle="tab">
+      Periods
+    </a>
+  </li>
+  <li role="presentation">
+    <a href="#roster" aria-controls="roster" role="tab" data-toggle="tab">
+      Roster
+    </a>
+  </li>
+  <li role="presentation">
+    <a href="#salesforce" aria-controls="salesforce" role="tab" data-toggle="tab">
+      Salesforce
+    </a>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="main">
+    <h3>Course</h3>
+
+    <%= render 'form', url: admin_course_path, method: :put %>
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="teachers">
+    <h3>Assign teachers</h3>
+
+    <%= render 'teachers', url: teachers_admin_course_path(@course.id) %>
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="content">
+    <h3>Select a course ecosystem</h3>
+
+    <%= render 'set_ecosystem', url: set_ecosystem_admin_course_path(@course.id) %>
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="periods">
+    <h3>Periods</h3>
+
+    <%= render 'periods' %>
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="periods">
+    <h3>Periods</h3>
+
+    <%= render 'periods' %>
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="roster">
+    <h3>Roster</h3>
+
+    <%= render 'roster' %>
+
+    <h3>Upload Roster CSV</h3>
+
+    <%= render 'upload_roster', url: roster_admin_course_path(@course.id) %>
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="salesforce">
+    <h3>Salesforce Records</h3>
+
+    <%= render 'salesforce' %>
+  </div>
+</div>

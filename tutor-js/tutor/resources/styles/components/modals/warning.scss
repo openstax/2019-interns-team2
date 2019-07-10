@@ -1,0 +1,25 @@
+.warning {
+  @include ost-hero-modal();
+}
+
+.warning.modal .modal-header,
+.modal-header.warning {
+  background-color: #f5e9ea;
+  color: #b33238;
+  align-items: center;
+  justify-content: flex-start;
+  .ox-icon {
+    font-size: 24px;
+    fill: $tutor-danger;
+    margin-right: 0.5rem;
+  }
+}
+
+
+.warning.modal {
+  &.show {
+    .modal-dialog {
+      transform: translateY(110px);
+    }
+  }
+}

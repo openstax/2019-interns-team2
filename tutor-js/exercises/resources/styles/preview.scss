@@ -1,0 +1,30 @@
+.preview-screen {
+
+  padding: 40px;
+}
+
+.openstax-exercise-preview {
+  .exercise-tag { display: inline; }
+}
+
+.preview-navbar-controls {
+  display: flex;
+  justify-content: center;
+
+  .paging-controls {
+    display: flex;
+    align-items: center;
+
+    .ex-info {
+      border-top: 1px solid;
+      border-bottom: 1px solid;
+      border-color: $openstax-neutral-medium;
+      padding: 6px 12px;
+      min-width: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+}

@@ -1,0 +1,107 @@
+// the $navbar-XX vars are bootstrap defaults
+
+.tutor-navbar {
+
+  @mixin top-nav-action() {
+    font-size: 1.6rem;
+
+    @include media-breakpoint-down('md') {
+      .control-label { display: none; }
+    }
+  }
+
+  @media print {
+    display: none;
+  }
+
+  .navbar-item {
+    @include tutor-top-navbar-item();
+  }
+
+  .tutor-nav-controls {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 15px;
+    width: 1200px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &[aria-expanded="true"] {
+      color: #333;
+    }
+  }
+
+  > * {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-overlay {
+    align-items: center;
+    display: flex;
+  }
+
+  .ui-brand-logo {
+    display: inline-block;
+    margin-top: 5px;
+    height: 34px;
+    width: 200px;
+    background-repeat: no-repeat;
+    @include tutor-background-image('openstax-tutor-beta-logo.svg');
+  }
+
+  .right-side-controls {
+    display: flex;
+    height: 100%;
+
+    > * {
+      margin-left: 20px;
+      @include media-breakpoint-up('md') {
+        margin-left: 40px;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .book-links {
+    border-right: 1px solid $tutor-neutral-light;
+    display: flex;
+    align-self: stretch;
+    align-items: stretch;
+    a {
+      display: flex;
+      align-items: center;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      border-left: 1px solid $tutor-neutral-light;
+      .tutor-icon { margin-left: 0.5rem; }
+    }
+  }
+
+  .student-pay-now {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap-reverse;
+    .btn { margin-left: 10px; }
+  }
+
+
+  @import './top-nav-bar/center-controls';
+  @import './top-nav-bar/drop-down-menu';
+  @import './top-nav-bar/plugable';
+}
+
+@import './top-nav-bar/preview-add-course-btn';
+
+
+.pinned-shy .tutor-top-navbar {
+  @include make-shy();
+}

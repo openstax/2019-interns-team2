@@ -1,0 +1,83 @@
+.student-dashboard {
+
+  .task {
+    background: $tutor-white;
+    border-top: thin dotted $tutor-neutral-light;
+    position: relative;
+    display: flex;
+    width: 100%;
+    color: $tutor-neutral-darker;
+    overflow: hidden;
+    margin-left: 0;
+    margin-right: 0;
+    height: $student-dashboard-row-height;
+    min-height: $student-dashboard-row-height;
+    max-height: $student-dashboard-row-height;
+    > * {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 0
+    }
+    // if the screen is wide enough, set a hight and use line-height to vertically center content.
+    // This breaks when the responsive small view kicks in and it becomes multi-line
+    .column-icon {
+      height: 100%;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+    &.deleted:not(.workable) {
+      cursor: default;
+      background-color: $tutor-neutral-lightest;
+    }
+    .icon {
+      background-position: center;
+      margin: 0 1rem;
+      height: 100%;
+      background-size: auto;
+    }
+    .feedback {
+      .ox-icon {
+        margin-left: 0.5rem;
+      }
+    }
+
+    .btn.hide-task {
+      padding: 5px 7px;
+    }
+
+    // Adjust height for when the columns collapse and progress appears below task title
+    @include media-breakpoint-down('sm') {
+      .due-at {
+        padding-left: 1.5rem;
+      }
+      .column-icon {
+        height: inherit;
+      }
+      .icon {
+        margin: 0 0.5rem;
+      }
+    }
+
+    // A task that is workable can be clicked
+    &.workable {
+      cursor: pointer;
+      &:hover {
+        background-color: $tutor-neutral-lightest;
+        .icon { @include tutor-icon-active(1.2); }
+      }
+    }
+    &.deleted {
+      color: $tutor-neutral;
+      filter: grayscale(100%);
+      -webkit-filter: grayscale(100%);
+    }
+    transition: all 0.1s ease-in;
+
+  }
+}
+
+.student-dashboard-instructions-popover {
+  @include tutor-popover();
+}

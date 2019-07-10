@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CourseCalendar Sidebar Toggle matches snapshot 1`] = `
+.c0 {
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+<button
+  className="sidebar-toggle btn btn-default"
+  disabled={false}
+  onClick={[Function]}
+  onTransitionEnd={[Function]}
+  type="button"
+>
+  <span
+    className="text"
+  >
+    Add Assignment
+  </span>
+  <svg
+    aria-hidden="true"
+    className="svg-inline--fa fa-bars fa-w-14 ox-icon ox-icon-bars c0"
+    data-icon="bars"
+    data-prefix="fas"
+    focusable="false"
+    role="img"
+    style={Object {}}
+    viewBox="0 0 448 512"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
+      fill="currentColor"
+      style={Object {}}
+    />
+  </svg>
+</button>
+`;

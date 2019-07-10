@@ -1,0 +1,48 @@
+<%# Copyright 2011-2019 Rice University. Licensed under the Affero General Public
+    License version 3 or later.  See the COPYRIGHT file for details. %>
+
+<% top_nav_home_page_background %>
+<% account_bar_transparent %>
+
+<% content_for :application_body do %>
+
+  <div id="application-home-page-global-alerts">
+    <%= render  partial: "shared/global_alerts" %>
+  </div>
+
+  <div id="application-home-page-local-alerts">
+    <%= render  partial: "shared/local_alerts" %>
+  </div>
+
+  <div style="clear:both; margin-top: 12px"></div>
+
+  <div id="application-home-page-create">
+    <h3>Create</h3>
+    <p>Contribute free-form, multiple choice, matching,<br/>true or false and more exercises in any subject area!</p>
+    <%= link_to "Write an exercise >", nil, :class => 'link_button' %>
+  </div>
+
+  <div id="application-home-page-use" class='application-home-page-right-box'>
+    <h3>Use</h3>
+    <p>Easily use exercises in tests and homeworks, or embed in your online learning platform.</p>
+    <%= link_to "See examples >", nil, :class => 'link_button'%>
+  </div>
+
+  <div id="application-home-page-find" class='application-home-page-right-box'>
+    <h3>Find</h3>
+    <p>Search for exercises related to e-texts, concepts, interactive simulations, or other exercises.</p>
+    <%= link_to "Search for exercises >", nil, :class => 'link_button' %>
+  </div>
+
+  <div id="application-home-page-share" class='application-home-page-right-box last'>
+    <h3>Share</h3>
+    <p>Open licenses recognize authors and make our exercises free for others to use and re-use.</p>
+    <%= link_to "Learn more >", nil, :class => 'link_button' %>
+  </div>
+
+
+  <div style="clear:both; margin-bottom: 12px"></div>
+
+<% end %>
+
+<%= render template: "layouts/application" %>

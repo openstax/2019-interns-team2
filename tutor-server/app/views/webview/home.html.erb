@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:fb="http://ogp.me/ns/fb#" lang="en" xml:lang="en">
+<head>
+  <title>OpenStax Tutor</title>
+
+  <% unless is_real_production_site? # Keep google away from -dev etc %>
+    <meta name="robots" content="noindex">
+  <% end %>
+
+  <meta http-equiv="content-type" content="text/html; charset=UTF8" />
+  <%= render 'layouts/meta' %>
+  <%= stylesheet_link_tag 'home', media: 'all' %>
+  <%= javascript_include_tag 'home' %>
+  <%= csrf_meta_tags %>
+  <%= render 'webview/google_analytics' %>
+</head>
+
+<body id="home" role="main" aria-label="main content">
+<div class="body tutor-home">
+
+<!-- HEADER
+============================================= -->
+<header>
+  <nav class="navbar navbar-default navbar-fixed-top top-nav" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#home" aria-label="home"></a>
+      </div>
+      <ul class="nav navbar-nav navbar-right links">
+        <li><a href="<%= TUTOR_HELPDESK_URL %>" target="_blank">Help</a></li>
+        <li><a class="navbar-brand-rice" href="http://www.rice.edu" target="_blank" aria-label="rice university"></a></li>
+      </ul>
+    </div>
+    <!-- /.container -->
+  </nav>
+</header>
+<!-- HEADER
+============================================= -->
+
+
+<div class="body-container">
+  <h1>
+    Discover a new frontier in education.
+  </h1>
+
+  <p class="lead">
+    OpenStax Tutor Beta gives college students the easy-to-use online courseware and
+    learning tools they need to complete their course the first time around.
+    And it’s all based on science. Available for College Physics, Biology 2e,
+    and Introduction to Sociology 2e.
+  </p>
+
+  <a class="learn-more" href="https://openstax.org/openstax-tutor">LEARN MORE</a>
+
+  <%= link_to 'LOG IN', openstax_accounts_login_path, class: 'login' %>
+
+</div>
+
+<footer>
+  <p>
+    <%= render 'layouts/copyright_terms' %>
+    &middot;
+    <a href="http://gdpr.rice.edu/" target="_blank">GDPR</a>
+  </p>
+</footer>
+<!-- FOOTER
+============================================= -->
+
+</div>
+
+
+</body>
+</html>

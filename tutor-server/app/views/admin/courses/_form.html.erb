@@ -1,0 +1,113 @@
+<% method ||= :post %>
+
+<%= form_for @course, as: :course, url: url, method: method do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :term, 'Term (do NOT use "Demo" in production)' %>
+    <%= term_select_options = CourseProfile::Models::Course.terms.keys.map do |term|
+         term_string = term.to_s
+
+         [term_string.humanize, term_string.downcase]
+       end
+
+       f.select :term, term_select_options, {}, class: 'form-control' %>
+    <small class="form-text text-muted">Changing this will clear the start/end dates</small>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :year %>
+    <%= f.number_field :year, class: 'form-control' %>
+    <small class="form-text text-muted">Changing this will clear the start/end dates</small>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :num_sections, 'Number of sections' %>
+    <%= f.number_field :num_sections, min: 0, class: 'form-control',
+                                      disabled: !f.object.new_record? %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :starts_at %>
+    <%= f.text_field :starts_at, class: 'form-control datepicker' %>
+    <small class="form-text text-muted">Blank means use default date for the given Term/Year</small>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :ends_at %>
+    <%= f.text_field :ends_at, class: 'form-control datepicker' %>
+    <small class="form-text text-muted">Blank means use default date for the given Term/Year</small>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :school_district_school_id, 'School' %>
+    <%= f.collection_select :school_district_school_id,
+                            @schools,
+                            :id, :name,
+                            { include_blank: true },
+                            class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :catalog_offering_id, 'Catalog Offering' %>
+    <%= catalog_offering_select_options = @catalog_offerings.map do |co|
+          attrs = [co.salesforce_book_name, co.id,
+                   {'data-appearance_code' => co.appearance_code}]
+          attrs.last.merge!('data-is_concept_coach' => 1) if co.is_concept_coach
+          attrs
+        end
+
+        f.select :catalog_offering_id,
+                 catalog_offering_select_options,
+                 { include_blank: true },
+                 class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :appearance_code, 'Appearance Code (leave blank for Catalog Offering\'s default)' %>
+
+    <%= f.select :appearance_code,
+              Settings::CourseAppearanceCodes.map {|code, name|
+                [name, code]
+              },
+              { include_blank: true },
+              class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :is_preview %>
+    <%= f.check_box :is_preview, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :is_concept_coach %>
+    <%= f.check_box :is_concept_coach, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :is_college %>
+    <br>
+    <%= f.select :is_college, [[ "Unknown", nil ], [ "Yes", true ], [ "No", false ]],
+                 {}, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :is_test %>
+    <%= f.check_box :is_test, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :does_cost %>
+    <%= f.check_box :does_cost, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :is_lms_enabling_allowed %>
+    <%= f.check_box :is_lms_enabling_allowed, class: 'form-control' %>
+  </div>
+
+  <%= f.submit 'Save', class: 'btn btn-primary', id: 'edit-save' %>
+<% end %>

@@ -1,0 +1,217 @@
+@import '../screen-styles';
+
+.new-course-wizard {
+  $card-choice-height: 70px;
+  $card-body-height: $card-choice-height * 3.5;
+
+  @include ost-hero-backdrop();
+  font-size: 16px;
+
+  @mixin book-icon-style() {
+    &::before{
+      content: '';
+      margin-right: 1rem;
+      width: 60px;
+      height: 60px;
+      min-width: 60px;
+      background-size: cover;
+      background-position: bottom;
+    }
+    &[data-appearance*=biology]::before {
+      background-position: center;
+    }
+  }
+
+  max-width: 440px;
+  margin: 134px auto 0 auto;
+
+  .card {
+    position: relative;
+    @include tutor-shadow('pop');
+    background: $tutor-white;
+
+    .card-header,
+    .card-footer {
+      padding: 40px;
+      color: inherit;
+      background: $tutor-white;
+      border: 0;
+    }
+
+    .card-body {
+      min-height: $card-body-height;
+      padding: 20px 40px;
+      background: $tutor-white;
+    }
+    .card-footer {
+      .controls { text-align: right; }
+      .btn {
+        font-weight: 600;
+        &.btn-default {
+          color: $tutor-neutral;
+          &.back {
+            background: $tutor-neutral;
+            color: $tutor-white;
+          }
+        }
+      }
+    }
+
+    .card-header {
+      font-size: 1.6rem;
+      line-height: 2rem;
+      padding-bottom: 0;
+      .course-offering-title {
+        display: flex;
+        .contents {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          &::before {
+            @include book-icon-style();
+          }
+          .title {
+            font-size: 1.6rem;
+            font-weight: 800;
+          }
+        }
+      }
+    }
+    .card-body .ox-loader {
+      background-color: white;
+      z-index: 1;
+      .ox-loader--inner {
+        padding: 1.6rem 0;
+      }
+    }
+    .ox-icon.best-practices {
+      height: 2rem;
+    }
+    &.is-loading {
+      .card-body {
+        @include tutor-subtle-load('loading');
+      }
+    }
+
+    .choices-listing {
+      max-height: inherit;
+    }
+
+  }
+
+  .new-course-wizard {
+
+    .choice {
+
+      &[data-new-or-copy=new]::before {
+        background-image: url('../../../resources/images/icons/icon-new-course.svg');
+      }
+
+      &[data-new-or-copy=copy]::before {
+        background-image: url('../../../resources/images/icons/icon-copy-course.svg');
+      }
+    }
+
+    [data-appearance] {
+      @include book-icon-style();
+    }
+
+    [data-new-or-copy] {
+      &::before {
+        background-position: center;
+        width: 60px;
+      }
+    }
+
+    @each $book in map-keys($openstax-book-thumbnails) {
+      [data-appearance="#{$book}"]:before {
+        @include book-content-thumbnail($book);
+      }
+    }
+
+    .input-group-prepend {
+      background: $tutor-white;
+      color: inherit;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .form-control {
+      background: $tutor-neutral-lightest;
+      height: 4.8rem;
+      font-weight: 600;
+      color: inherit;
+    }
+
+    .alert-danger {
+      padding: 0.5rem;
+      border: 0;
+    }
+
+    // customize different wizard types
+    &.course_type,
+    &.offering_id,
+    &.offering {
+      .card-header {
+        font-weight: 800;
+        text-align: center;
+        min-height: 6rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    &.course_type {
+      svg {
+        width: 80%;
+        height: 5rem;
+      }
+    }
+    &.term,
+    &.cloned_from_id {
+      .list-group-item {
+        text-transform: capitalize;
+      }
+    }
+
+    &.term {
+      .year { margin-left: 0.5rem; }
+    }
+    &.cloned_from_id {
+      .list-group-item .sub-title {
+        font-weight: 400;
+        font-size: 0.9em;
+        line-height: 1.25em;
+      }
+    }
+
+    &.numbers {
+
+      .input-group {
+        width: 100%;
+        align-items: center;
+        flex-wrap: nowrap;
+      }
+
+      .form-control {
+        text-align: center;
+      }
+
+      label {
+        margin-bottom: 0;
+      }
+      .input-group-addon {
+        width: 80%;
+        p { margin: 0; }
+      }
+
+      input[type=number] {
+        width: 100px;
+        margin-left: 1rem;
+      }
+    }
+  }
+}

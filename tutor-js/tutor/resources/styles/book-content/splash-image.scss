@@ -1,0 +1,50 @@
+@mixin tutor-book-content-splash-image() {
+
+  .os-chapter-objective {
+    .splash {
+      padding-bottom: 0;
+    }
+  }
+
+  // splash elements are full width without margin or surrounding padding
+  .splash {
+    @include book-content-full-width();
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+
+    img {
+      border: 0;
+      margin: 0;
+    }
+
+    figcaption {
+      padding: 20px;
+    }
+
+    + p {
+      clear: both;
+      padding-top: 20px;
+    }
+    .tutor-ui-overlay {
+      position: relative;
+      font-size: 3rem;
+      line-height: 3rem;
+      font-weight: 600;
+      padding: 30px 20px;
+    }
+    .os-caption-container,
+    & + .os-caption-container {
+      padding: 0 20px 20px 20px;
+      margin-bottom: 20px;
+    }
+    & + .os-caption-container {
+      @include book-content-full-width();
+    }
+  }
+
+  .splash-video {
+    .frame-wrapper {
+      margin-top: 0;
+    }
+  }
+}

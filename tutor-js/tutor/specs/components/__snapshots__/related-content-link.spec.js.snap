@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Related Content Link renders and matches snapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c0 .chapter-section {
+  font-weight: normal;
+  color: inherit;
+}
+
+.c0 .browse-the-book {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c2 {
+  margin-left: 0.5rem;
+  max-width: 300px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.c1 {
+  margin-right: 0.5rem;
+}
+
+<div
+  className="related-content-link c0"
+>
+  <span
+    className="preamble c1"
+  >
+    Comes from
+  </span>
+  <a
+    aria-label="Browse course reference book"
+    className="browse-the-book"
+    href="/book/1/section/1.0"
+    onClick={[Function]}
+    tabIndex={-1}
+    target="_blank"
+  >
+    <span
+      className="chapter-section"
+      data-chapter-section="1.0"
+    >
+      1
+    </span>
+    <span
+      className="title c2"
+    >
+      Intro
+    </span>
+  </a>
+</div>
+`;

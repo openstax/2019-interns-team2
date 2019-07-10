@@ -1,0 +1,203 @@
+<% extra_headers ||= [] %>
+<% extra_fields_procs ||= [] %>
+<% bulk_actions ||= false %>
+<% incomplete_jobs ||= [] %>
+<% failed_jobs ||= [] %>
+<% total_count ||= course_infos.try(:count) %>
+
+<% page ||= 1 %>
+<% per_page = per_page == 'all' ? total_count : per_page.to_i %>
+<% per_page = 25 if per_page == 0 %>
+
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="main">
+    <div>Showing <%= total_count %> total</div>
+
+    <% pagination = will_paginate(
+      WillPaginate::Collection.create(page, per_page, total_count) do |pager|
+        pager.replace course_infos
+      end
+    ) %>
+
+    <%= pagination %>
+
+    <div style="margin-bottom: 10px;">
+    <% if bulk_actions %>
+        <%= check_box_tag 'courses_select_all_on_page', nil, checked = true, id: 'courses_select_all_on_page' %>
+         Select All
+        <% if pagination.present? %>
+          (This Page)
+          &nbsp;
+          &nbsp;
+          <%= check_box_tag 'courses_select_all_on_all_pages', nil, checked = false, id: 'courses_select_all_on_all_pages' %>
+           Select All (All Pages)
+          &nbsp;
+          &nbsp;
+          Individual selections are not remembered on other pages
+        <% end %>
+    <% end %>
+    </div>
+
+    <% course_infos.each do |course_info| %>
+      <div class="stats-card">
+        <div class="card-header">
+          <% if bulk_actions %>
+              <% course_selected = params[:course_id].blank? ?
+                                     true : params[:course_id].include?(course_info.id) %>
+              <%= check_box_tag 'course_id[]',
+                                course_info.id,
+                                checked = course_selected,
+                                class: 'course_id_select',
+                                id: "course_id_#{course_info.id}" %>
+            <% end %>
+
+          <span class="course-info-id">
+            <%= "#{course_info.id}" %>
+          </span>
+          <span class="course-info-name"><%= " #{course_info.name}" %></span>
+          <%= " / #{course_info.teachers.without_deleted.map(&:name).to_sentence}" \
+                unless course_info.teachers.blank? %>
+          <span class="course-info-school">
+            <%= " / #{course_info.school_name}" if course_info.school %>
+          </span>
+        </div>
+        <div class="card-body">
+          <div class="card-content-left">
+            <div class="content-top">
+              <% ecosystem = course_info.ecosystems.first %>
+
+              <% unless ecosystem.nil? %>
+                <%= "(Ecosystem ID #{ecosystem.id})" %> <%= ecosystem.title %>
+
+                <span class="ecosystem-created-at" style="white-space: nowrap;">
+                  <%= "(#{ecosystem.created_at})" %>
+                </span>
+              <% end %>
+            </div>
+            <div class="content-middle">
+              <%= ecosystem.try(:comments) %>
+            </div>
+            <div class="content-bottom">
+              <div class="course-duration" style="white-space: nowrap;">
+                <%= course_info.term.capitalize %>
+                <%= course_info.year %>
+                (<%= course_info.starts_at.strftime('%b %d, %Y') %>
+                - <%= course_info.ends_at.strftime('%b %d, %Y') %>)
+              </div>
+              <%= "CC /" if course_info.is_concept_coach %>
+              <%= course_info.is_college ? "College /" : "High School /" \
+                    unless course_info.is_college.nil? %>
+              <%=
+                total_periods = 0
+                total_students = 0
+                dropped_students = 0
+                archived_periods = 0
+                archived_students = 0
+
+                course_info.periods.each do |period|
+                  students = period.students.to_a
+                  num_students = students.size
+
+                  total_periods += 1
+                  total_students += num_students
+                  dropped_students += students.count(&:dropped?)
+                  next unless period.archived?
+
+                  archived_periods += 1
+                  archived_students += num_students
+                end
+
+                "#{total_students} students (#{dropped_students} dropped, #{archived_students
+                } archived) / #{total_periods} periods (#{archived_periods} archived)"
+              %> /
+              <%= course_info.does_cost ? "Does Cost" : "Does NOT Cost" %> /
+              LMS:
+              <% if !course_info.is_lms_enabling_allowed %>
+                enable not allowed
+              <% elsif course_info.is_lms_enabled.nil? %>
+                no choice made
+              <% elsif course_info.is_lms_enabled %>
+                enabled
+                <% if course_info.is_access_switchable? %>
+                  <% if course_info.lms_contexts.any? %>
+                    &amp; paired (<%= link_to('unpair', unpair_lms_admin_course_path(course_info),
+                                method: :delete, data: { confirm: 'Are you sure?' })%>)
+                  <% end %>
+                <% else %>
+                   LOCKED
+                <% end %>
+              <% else %>
+                disabled
+              <% end %>
+
+            </div>
+          </div>
+          <div class="card-content-right">
+            <% [extra_fields_procs].flatten.each do |extra_fields_proc| %>
+              <span>
+                <%= capture(course_info, &extra_fields_proc) unless extra_fields_proc.nil? %>
+              </span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <%= pagination %>
+
+    <% if bulk_actions %>
+      <div id="courses-bulk-actions">
+        <div class="form-group input-group">
+          <%= select_tag :ecosystem_id,
+                         options_from_collection_for_select(
+                           @ecosystems, :id, :unique_title, params[:ecosystem_id]
+                         ),
+                         include_blank: '-- Select an ecosystem (does not work across pages yet) --',
+                         class: 'form-control' %>
+          <span class="input-group-btn">
+            <%= submit_tag 'Set Ecosystem', class: 'btn btn-primary' %>
+          </span>
+        </div>
+
+        <hr/>
+
+        <div class="row">
+          <div class="form-group col-xs-7">
+            <%= select_tag :flag_name,
+                           options_for_select([
+                             #
+                             # *********              ATTENTION                 **********
+                             # only put flags here that are not validated and that do not have
+                             # callbacks use their value.  The flags are set with an `update_all`
+                             # command that skips validations and callbacks.
+                             #
+                             ["Allow teacher to enable LMS?", "is_lms_enabling_allowed"],
+                             ["Course costs?", "does_cost"]
+                            ]),
+                           include_blank: '-- Select a flag to modify --',
+                           class: 'form-control' %>
+          </div>
+          <div class="form-group col-xs-4">
+            <%= select_tag :flag_value,
+                           options_for_select([["False / No", "false"], ["True / Yes", "true"]]),
+                           class: 'form-control' %>
+          </div>
+          <div class="form-group col-xs-1">
+            <span class="input-group-btn pull-right">
+              <%= submit_tag 'Set Flag', class: 'btn btn-primary pull-right' %>
+            </span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="incomplete">
+    <%= render partial: 'manager/courses/jobs',
+               locals: { jobs: incomplete_jobs, job_path_proc: job_path_proc } %>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="failed">
+    <%= render partial: 'manager/courses/jobs',
+               locals: { jobs: failed_jobs, status: 'Failed', job_path_proc: job_path_proc } %>
+  </div>
+</div>

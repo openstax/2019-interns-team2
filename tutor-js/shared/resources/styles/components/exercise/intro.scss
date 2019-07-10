@@ -1,0 +1,61 @@
+&-two-step-intro,
+&-individual-review-intro,
+&-personalized-intro,
+&-spaced-practice-intro {
+
+  h1 {
+    display: flex;
+    align-items: center;
+  }
+
+  &.card-body { // overide normal card-body styles
+    padding: 60px 140px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 900;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 2.4rem;
+  }
+
+}
+
+&-two-step-intro,
+&-personalized-intro,
+&-spaced-practice-intro {
+
+  &.card-body {
+    color: $openstax-white;
+    background-color: $openstax-blue;
+  }
+  .continue {
+    background-color: $openstax-white;
+    color: $openstax-blue !important;
+  }
+}
+
+&-individual-review-intro {
+  .continue {
+    margin-top: 40px;
+    @include button-variant($openstax-primary, darken($openstax-primary, 5%));
+  }
+}
+
+@each $selector, $icon in (two-step-intro, icon-two-step-intro-heading),
+                          (individual-review-intro, icon-individual-review-heading),
+                          (personalized-intro, icon-personalized-intro-heading),
+                          (spaced-practice-intro, icon-spaced-practice-intro-heading) {
+  &-#{$selector} {
+    h1::before {
+      content: " ";
+      min-width: 100px;
+      min-height: 100px;
+      margin-right: 20px;
+      background: url("#{$icon-path}/#{$icon}.svg") no-repeat center;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+// This file is part of the book-content mixin and should not be included directly
+[data-alt='QR Code representing a URL'] {
+  display: none;
+}
+
+.chapter-section {
+  font-weight: 700;
+  color: $tutor-chapter-sections-color;
+}
+
+a:not(.disabled) { cursor: pointer; }

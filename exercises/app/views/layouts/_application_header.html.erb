@@ -1,0 +1,58 @@
+<%# Copyright 2011-2019 Rice University. Licensed under the Affero General Public
+    License version 3 or later.  See the COPYRIGHT file for details. %>
+
+<div id="application-header">
+
+  <div id="application-header-color-bar"></div>
+
+  <div id="application-header-between-bars">
+
+    <%= render partial: "layouts/application_account_bar", locals: { icon_color: "white" } %>
+
+    <div id="application-header-logo">
+      <a href="<%= main_app.root_url %>" id="application-header-logo-link"></a>
+    </div>
+
+  </div>
+
+  <div id="top-nav-frame" class="<%= yield :top_nav_class %>">
+    <div id="top-nav-content">
+      <div id="top-nav-links">
+        <ul>
+          <li>
+            <%= render 'layouts/application_top_nav_link',
+                       target_text:           'WRITE A NEW EXERCISE',
+                       target_id:             'top-nav-exercises-new-link',
+                       target_path:           'exercises/new',
+                       target_current_symbol: :top_nav_exercises_new_current %>
+          </li>
+          <li>
+            <%= render 'layouts/application_top_nav_link',
+                       target_text:           'SEARCH',
+                       target_id:             'top-nav-exercises-link',
+                       target_path:           'search',
+                       target_current_symbol: :top_nav_exercises_current %>
+          </li>
+          <li>
+            <%= render 'layouts/application_top_nav_link',
+                       target_text:           'EXERCISE LISTS',
+                       target_id:             'top-nav-lists-link',
+                       target_path:           '',
+                       target_current_symbol: :top_nav_lists_current %>
+          </li>
+
+        </ul>
+      </div>
+
+      <input type='text' placeholder="SEARCH"/>
+
+    </div>
+
+
+  </div>
+
+  <noscript>
+    <%= render partial: "shared/alert", locals: { alert: javascript_not_enabled_alert } %>
+  </noscript>
+
+</div>

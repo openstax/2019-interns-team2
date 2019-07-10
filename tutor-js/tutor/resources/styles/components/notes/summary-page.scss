@@ -1,0 +1,131 @@
+.overlay.notes-summary {
+  background-color: $tutor-neutral-light;
+  justify-content: center;
+
+  @media print {
+    flex-basis: calc(100% - 8rem);
+    transform: translateX(1rem);
+  }
+
+
+  @media print {
+    padding: 0;
+    position: static;
+  }
+
+
+  .summary-page {
+    padding: 50px;
+    flex-basis: 100%;
+    max-width: $tutor-max-panel-width;
+    margin-top: $openstax-navbar-height;
+
+    .filter-area {
+      display: flex;
+      justify-content: space-between;
+    }
+    .filter-widget {
+      display: flex;
+      flex-direction: column;
+      width: 40rem;
+      .rw-widget { width: 100%; }
+      .section {
+        display: inline-block;
+        margin: 0 0.5rem;
+        min-width: 3rem;
+        text-align: right;
+        font-weight: bold;
+      }
+    }
+
+    .section-title {
+      margin: 1rem 0;
+    }
+
+    h1 {
+      @include tutor-main-title-font();
+      border-top-width: 0;
+    }
+
+    h2 {
+      @include tutor-main-subtitle-font();
+    }
+
+    .note-card {
+      padding-bottom: 3rem;
+    }
+
+    .note-body {
+      background-color: $tutor-white;
+      display: flex;
+      flex-direction: column;
+      padding: 3rem;
+      width: 100%;
+      break-inside: avoid;
+
+      @include tutor-book-content-equations();
+
+      @media print {
+        padding: 0;
+      }
+
+      .button-group {
+        display: flex;
+      }
+
+
+      .controls {
+        display: flex;
+        justify-content: flex-end;
+
+        a, button {
+          background-color: $tutor-white;
+          border: thin solid $tutor-neutral-light;
+          border-radius: 2px;
+          height: 3rem;
+          margin-right: 0.5rem;
+          width: 4.6rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &:last-child {
+            margin: 0;
+          }
+
+          .ox-icon {
+            color: $tutor-neutral-dark;
+            margin: 0;
+          }
+        }
+      }
+
+      .note-content {
+        flex: 1;
+
+        .selected-text {
+          border-left: 3px solid $tutor-neutral-light;
+          font-family: Georgia, serif;
+          background: $tutor-white;
+          font-size: 1.5rem;
+          line-height: 1.8rem;
+          font-style: italic;
+          padding: 1rem;
+        }
+        .plain-text {
+          white-space: pre-line;
+        }
+        .edit-box,
+        .plain-text:not(:empty) {
+          margin-top: 2rem;
+
+          textarea {
+            border: thin solid $tutor-neutral-light;
+            padding: 1rem;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

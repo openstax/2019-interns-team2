@@ -1,0 +1,17 @@
+// Copyright 2011-2013 Rice University. Licensed under the Affero General Public 
+// License version 3 or later.  See the COPYRIGHT file for details.
+
+@import "common";
+
+#application-body-only {
+  position: relative;
+
+  @include body-margins;
+
+  margin-top: 20px;
+
+  #application-body-only-body-content {
+    #application-body-only-body {
+    }
+  }
+}

@@ -1,0 +1,13 @@
+node_modules
+bower_components
+dist
+.DS_Store
+/.tmp
+*.orig
+/test-failed-*.png
+/coverage
+/docs*
+archive.tar.gz
+*.cjsx.js
+/phantomjsdriver.log
+*/test/some-tests.*

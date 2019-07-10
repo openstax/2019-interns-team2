@@ -1,0 +1,10 @@
+<h1>Content Licenses</h1>
+
+<%= render partial: 'index', locals: {licenses: @licenses,
+                                      action_partial: 'admin/licenses/actions'} %>
+
+<br>
+
+<%= link_to(new_admin_license_url) do
+      '<span class="glyphicon glyphicon-plus">Add</span>'.html_safe
+    end %>

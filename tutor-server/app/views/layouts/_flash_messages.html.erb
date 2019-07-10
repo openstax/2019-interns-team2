@@ -1,0 +1,8 @@
+<% flash.each do |name, msg| %>
+  <% [msg].flatten.each do |msg| %>
+    <%= content_tag :div, class: "alert #{bootstrap_flash[name]} fade in flash_#{name}" do %>
+      <button class="close" data-dismiss="alert">×</button>
+      <%= msg %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<openstax_exercises_url>/api/exercises/search"
+    body:
+      encoding: UTF-8
+      string: 'page=1&q=tag%3Ak12phys-ch04-ex002+collaborator%3Aopenstax'
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept:
+      - application/vnd.openstax.v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 28 Oct 2015 20:06:38 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - W/"5ee795708b282a9f416cfd9106efef18"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - _exercises_session=R3Q0YUZHU3EvQUV5TU1ndGdxOXBzQy93WnJnWXdxUnNidWMwZmhVYVI3S01aM3R3NDlBWVF3K1psdFJIRjRNSmZVY2VrUW9zSFEwS0g0N3A2UVZZc1E9PS0tQTE3Qyt4TDZWM01rQXN1bXRvTThLQT09--39a3b8c0a39a57ad267b893b3216847001611798;
+        path=/; HttpOnly
+      X-Request-Id:
+      - 880fe44b-0f16-43ff-ba15-ffc05e48dd4d
+      X-Runtime:
+      - '0.163332'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+    body:
+      encoding: UTF-8
+      string: '{"total_count":1,"items":[{"uid":"2061@1","number":2061,"version":1,"published_at":"2015-09-16T20:13:57.264Z","editors":[],"authors":[{"user_id":1,"name":"OpenStax"}],"copyright_holders":[{"user_id":2,"name":"Rice
+        University"}],"derived_from":[],"attachments":[],"tags":["inbook-yes","display-free-response","display-rec-sensitive","dok2","time-short","blooms-2","k12phys","os-practice-concepts","k12phys-ch04","k12phys-ch04-s01","k12phys-ch04-s01-lo01","k12phys-ch04-ex002"],"stimulus_html":"","questions":[{"id":2061,"stimulus_html":"","stem_html":"Do
+        two bodies have to be in physical contact to exert a force upon one another?
+        Explain with an example.","answers":[{"id":8182,"content_html":"Yes, the gravitational
+        force is a contact force and requires physical contact to exert a force.","correctness":"0.0","feedback_html":"Contact
+        forces require physical contact to exert a force."},{"id":8181,"content_html":"Yes,
+        the gravitational force is a field force and requires physical contact to
+        exert a force.","correctness":"0.0","feedback_html":"A field force produces
+        an action at a distance without physical contact between the interacting bodies."},{"id":8180,"content_html":"No,
+        the gravitational force is a contact force and does not require physical contact
+        to exert a force.","correctness":"0.0","feedback_html":"The gravitational
+        force is a field force. Can a contact force act without physical contact?"},{"id":8179,"content_html":"No,
+        the gravitational force is a field force and does not require physical contact
+        to exert a force.","correctness":"1.0","feedback_html":"The gravitational
+        force exists between two objects at a distance from each other because it
+        is a field force and does not require physical contact."}],"solutions":[{"uid":"2061@1","number":2061,"version":1,"published_at":"2015-09-16T20:13:57.259Z","editors":[],"authors":[{"user_id":1,"name":"OpenStax"}],"copyright_holders":[{"user_id":2,"name":"Rice
+        University"}],"derived_from":[],"attachments":[],"solution_type":"detailed","content_html":"No.
+        The gravitational force can act between objects without the objects touching
+        each other."}],"hints":[],"formats":["free-response","multiple-choice"],"combo_choices":[]}]}]}'
+    http_version: 
+  recorded_at: Wed, 28 Oct 2015 20:06:38 GMT
+recorded_with: VCR 2.9.3

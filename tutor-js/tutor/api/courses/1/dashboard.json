@@ -1,0 +1,318 @@
+{
+  "all_tasks_are_ready": true,
+  "tasks": [
+    {
+      "id": "6",
+      "title": "Chapter 6 Homework Before Due, no feedback",
+      "opens_at": "2016-04-02T14:15:58.856Z",
+      "due_at": "2016-04-25T00:45:20.967Z",
+      "type": "homework",
+      "complete": false,
+      "exercise_count": 2,
+      "complete_exercise_count": 0,
+      "first_published_at": "2016-04-02T14:15:58.856Z",
+      "last_published_at": "2016-04-02T14:15:58.856Z",
+      "is_draft": false,
+      "is_preview": false,
+      "is_published": true,
+      "is_publishing": false,
+      "is_trouble": false,
+      "settings": {
+        "exercise_ids": ["48", "532", "27", "91", "548", "533", "540", "590", "534", "21"],
+        "exercises_count_dynamic": 4,
+        "page_ids": ["2", "3", "4"]
+      }
+    },
+    {
+      "id": "4",
+      "title": "Chapter 5 and Chapter 6 Reading",
+      "opens_at": "2016-04-02T14:15:58.856Z",
+      "due_at": "2016-04-25T00:45:20.967Z",
+      "type": "reading",
+      "complete": false,
+      "exercise_count": 2,
+      "complete_exercise_count": 0
+    },
+    {
+      "id": "9",
+      "title": "Chapter 10 and Chapter 11 Reading, multi-part",
+      "opens_at": "2016-04-02T14:15:58.856Z",
+      "due_at": "2016-04-25T00:45:20.967Z",
+      "type": "reading",
+      "complete": false,
+      "exercise_count": 2,
+      "complete_exercise_count": 0
+    },
+    {
+      "id": "3",
+      "title": "iReading 1: Force",
+      "opens_at": "2015-04-02T14:15:58.856Z",
+      "due_at": "2015-04-12T08:15:58.856Z",
+      "type": "reading",
+      "complete": false,
+      "exercise_count": 2,
+      "complete_exercise_count": 0
+    },
+    {
+      "id": "5",
+      "title": "iReading 2: Newton's First Law of Motion: Inertia",
+      "opens_at": "2015-04-07T14:15:58.856Z",
+      "due_at": "2015-04-13T08:15:58.856Z",
+      "type": "reading",
+      "complete": true,
+      "exercise_count": 2,
+      "complete_exercise_count": 2
+    },
+    {
+      "id": "7",
+      "title": "iReading 3: Newton's Second Law of Motion:",
+      "opens_at": "2015-04-13T14:15:58.856Z",
+      "due_at": "2015-04-16T14:15:58.856Z",
+      "type": "reading",
+      "complete": false,
+      "exercise_count": 2,
+      "complete_exercise_count": 1
+    },
+    {
+      "id": "10",
+      "title": "iReading 4: Newton's Third Law of Motion",
+      "opens_at": "2015-04-13T14:16:58.856Z",
+      "due_at": "2015-04-19T14:15:58.856Z",
+      "type": "reading",
+      "complete": false,
+      "exercise_count": 2,
+      "complete_exercise_count": 0
+    },
+    {
+      "id": "11",
+      "title": "Homework #1",
+      "opens_at": "2015-04-04T14:15:58.856Z",
+      "due_at": "2015-04-20T14:15:58.856Z",
+      "type": "homework",
+      "complete": true,
+      "exercise_count": 7,
+      "complete_exercise_count": 7,
+      "correct_exercise_count": 6
+    },
+    {
+      "id": "13",
+      "title": "Homework #2",
+      "opens_at": "2015-04-09T14:15:58.856Z",
+      "due_at": "2015-04-21T14:15:58.856Z",
+      "type": "homework",
+      "complete": true,
+      "exercise_count": 8,
+      "complete_exercise_count": 8,
+      "correct_exercise_count": 7
+    },
+    {
+      "id": "15",
+      "title": "Homework #3",
+      "opens_at": "2015-04-24T14:15:58.856Z",
+      "due_at": "2015-05-04T23:15:58.856Z",
+      "type": "homework",
+      "complete": true,
+      "exercise_count": 6,
+      "complete_exercise_count": 6
+    },
+    {
+      "id": "17",
+      "title": "Homework #4 (final)",
+      "opens_at": "2015-05-09T14:15:58.856Z",
+      "due_at": "2015-05-19T14:15:58.856Z",
+      "type": "homework",
+      "complete": true,
+      "exercise_count": 3,
+      "complete_exercise_count": 7
+    }
+  ],
+  "plans": [
+    {
+      "id": "1",
+      "type": "reading",
+      "title": "Read Pages 9-11",
+      "published_at": "2015-03-04T16:40:23.796Z",
+      "tasking_plans": [
+        {
+          "target_id": "1",
+          "target_type": "period",
+          "opens_at": "2015-03-04T16:40:23.796Z",
+          "due_at": "2015-03-10T04:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "type": "reading",
+      "title": "Read Other Things",
+      "tasking_plans": [
+        {
+          "target_id": "1",
+          "target_type": "period",
+          "opens_at": "2015-02-28T16:40:23.796Z",
+          "due_at": "2015-03-01T04:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "type": "homework",
+      "title": "Complete exercise 12A on pg 12",
+      "tasking_plans": [
+        {
+          "target_id": "1",
+          "target_type": "period",
+          "opens_at": "2015-03-04T11:40:23.796Z",
+          "due_at": "2015-03-18T04:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "type": "homework",
+      "title": "Complete exercise 12A on pg 12",
+      "tasking_plans": [
+        {
+          "target_id": "1",
+          "target_type": "period",
+          "opens_at": "2015-03-31T11:40:23.796Z",
+          "due_at": "2015-04-01T04:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "type": "homework",
+      "title": "Complete exercise 12A on pg 12",
+      "tasking_plans": [
+        {
+          "target_id": "1",
+          "target_type": "period",
+          "opens_at": "2015-03-31T11:40:23.796Z",
+          "due_at": "2015-04-01T04:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "type": "homework",
+      "title": "Complete exercise 12A on pg 12",
+      "tasking_plans": [
+        {
+          "target_id": "1",
+          "target_type": "period",
+          "opens_at": "2015-03-31T11:40:23.796Z",
+          "due_at": "2015-04-05T10:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "type": "homework",
+      "title": "Complete exercise 12A on pg 12",
+      "tasking_plans": [
+        {
+          "target_id": "1",
+          "target_type": "period",
+          "opens_at": "2015-02-31T11:40:23.796Z",
+          "due_at": "2015-04-05T10:00:00.000Z"
+        },
+        {
+          "target_id": "2",
+          "target_type": "period",
+          "opens_at": "2015-02-31T11:40:23.796Z",
+          "due_at": "2015-04-05T10:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "type": "homework",
+      "title": "Complete exercise 12A on pg 12",
+      "tasking_plans": [
+        {
+          "target_id": "1",
+          "target_type": "period",
+          "opens_at": "2015-01-31T11:40:23.796Z",
+          "due_at": "2015-04-05T10:00:00.000Z"
+        },
+        {
+          "target_id": "2",
+          "target_type": "period",
+          "opens_at": "2015-03-30T11:40:23.796Z",
+          "due_at": "2015-04-05T10:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "type": "homework",
+      "title": "Write short essay on the rise and fall of the Roman Empire",
+      "tasking_plans": [
+        {
+          "target_id": "1",
+          "target_type": "period",
+          "due_at": "2015-10-14T12:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "29",
+      "ecosystem_id": "4",
+      "type": "homework",
+      "title": "test d",
+      "is_feedback_immediate": false,
+      "is_draft": false,
+      "is_publishing": false,
+      "is_published": true,
+      "first_published_at": "2016-12-07T18:23:24.615Z",
+      "last_published_at": "2016-12-07T19:18:28.195Z",
+      "settings": {
+        "page_ids": [
+          "762",
+          "763"
+        ],
+        "exercise_ids": [
+          "20650",
+          "21167"
+        ],
+        "exercises_count_dynamic": 3
+      },
+      "tasking_plans": [
+        {
+          "target_id": "29",
+          "target_type": "period",
+          "opens_at": "2016-12-08T06:01:00.000Z",
+          "due_at": "2016-12-17T13:00:00.000Z"
+        },
+        {
+          "target_id": "30",
+          "target_type": "period",
+          "opens_at": "2016-12-08T06:01:00.000Z",
+          "due_at": "2016-12-17T13:00:00.000Z"
+        }
+      ]
+    }
+  ],
+  "role": {
+    "id": "9",
+    "type": "student"
+  },
+  "course": {
+    "name": "Physics - Many Plan",
+    "teachers": [
+      {
+        "id": "1",
+        "role_id": "12",
+        "first_name": "Charles",
+        "last_name": "Morris"
+      },
+      {
+        "id": "2",
+        "role_id": "8",
+        "first_name": "Bob",
+        "last_name": "Newhart"
+      }
+    ]
+  }
+}

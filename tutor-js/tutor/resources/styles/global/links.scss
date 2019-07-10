@@ -1,0 +1,13 @@
+a,
+.btn-link {
+  color: text-color(link);
+  &:hover {
+    color: text-color(link-hover);
+  }
+  &.external-icon {
+//    &[target=_blank] { @include tutor-external-link-indicator(); }
+  }
+  &:not(.disabled) {
+    cursor: pointer;
+  }
+}

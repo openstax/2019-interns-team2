@@ -1,0 +1,69 @@
+//
+// Variables
+// --------------------------------------------------
+
+
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+$gray-base:              $tutor-black;
+$openstax-neutral-darker:            $tutor-neutral-darker; // #222
+$gray-dark:              $tutor-neutral-dark;   // #333
+$gray:                   $tutor-neutral; // #555
+$openstax-neutral-light:             $tutor-neutral-light; // #777
+$openstax-neutral-lighter:           $tutor-neutral-lighter; // #eee
+
+$brand-primary:         $tutor-primary; // tutor-primary, orange
+$brand-success:         $tutor-success; // tutor-secondary, green
+$brand-info:            $tutor-info;    // tutor-tertiary-neutral-light, light blue-ish
+$brand-warning:         $tutor-warning; // tutor-quaternary, yellow
+$brand-danger:          $tutor-danger;  // tutor-danger, red
+$grid-gutter-width: 30px;
+$container-large-desktop:      (1200px + 30px);
+
+$link-hover-color:      darken($link-color, 5%);
+$link-hover-decoration: none;
+
+$tooltip-max-width:     370px;
+$popover-max-width:     370px;
+
+$tooltip-border-color: $tutor-info;
+$tooltip-color: $tutor-neutral-darker;
+$tooltip-arrow-color: $tutor-white;
+$tooltip-arrow-outer-fallback-color: $tutor-info;
+$tooltip-arrow-outer-color: $tutor-info;
+$tooltip-bg: $tutor-white;
+
+$btn-border-radius: 0px;
+$font-size-base: 1.4rem;
+$line-height-base: 1.6;
+$link-hover-decoration: none;
+$navbar-padding-y: 0;
+$dropdown-divider-bg: #d5d5d5;
+$dropdown-box-shadow:  0 .5rem 1rem rgba($tutor-black, .175);
+$dropdown-item-padding-y: 0.75rem;
+$dropdown-item-padding-x: 1.5rem;
+$component-active-bg:  $tutor-neutral-bright;
+$input-focus-color: $tutor-neutral-dark;
+$input-focus-bg: $tutor-neutral-bright;
+$input-focus-border-color: $link-color;
+
+$input-btn-padding-y-lg: 1.2rem;
+$input-btn-padding-x-lg: 3rem;
+$input-btn-font-size-lg: 1.6rem;
+
+$theme-colors: (
+  "primary": $tutor-primary,
+);
+
+$btn-default-color:             #333;
+$btn-default-bg:                $tutor-neutral-cool;
+$btn-default-border:            #ccc;
+$link-color: $tutor-blue-control;
+$link-hover-color: darken($link-color, 15%);
+$modal-lg:                    670px;
+$modal-md:                    570px;
+$modal-sm:                    470px;
+
+$list-group-border-radius:      0;

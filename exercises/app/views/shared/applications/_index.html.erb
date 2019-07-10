@@ -1,0 +1,21 @@
+<%# Clients of this partial must provide the following variables:
+    applications
+    action_partial %>
+
+<%= osu.action_list(
+    records: applications,
+    list: {
+      headings: ['Name', 'Redirect URI', 'Actions'],
+      widths: ['30%', '60%', '10%'],
+      data_procs:
+        [
+          ->(application) { application.name || '---' },
+          ->(application) { truncate(application.redirect_uri) || '---' },
+          ->(application) do
+            "<span id=application-#{application.id}-actions>#{
+              render partial: action_partial, locals: { application: application }
+            }</span>".html_safe
+          end
+        ]
+    }
+  ) %>

@@ -1,0 +1,23 @@
+@import '../screen-styles';
+@import './styles/navbar';
+@import '../../../resources/styles/book-content/index';
+@import '../../../resources/styles/book-content/page';
+@import './styles/exercise';
+
+.reference-book {
+  @include book-page();
+  .page {
+    margin-top: 10rem;
+  }
+  .book-page-wrapper.not-found {
+    text-align: center;
+    height: calc(100vh - #{$tutor-navbar-height});
+  }
+  .loading-animation {
+    min-height: calc(100vh - #{$tutor-navbar-height});
+  }
+  &.menu-open .loading-animation {
+    max-width: 100%;
+    margin-left: $book-menu-width;
+  }
+}

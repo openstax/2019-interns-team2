@@ -1,0 +1,32 @@
+.modal-dialog,
+.modal {
+  $header-padding: 30px;
+  .modal-header {
+    padding: $header-padding $modal-padding;
+    font-size: 16px;
+    background-color: $tutor-neutral-bright;
+    border-bottom: 1px solid $tutor-neutral-light;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .modal-content {
+    border-radius: 0;
+    border: 0;
+  }
+
+  .modal-body {
+    padding: $modal-padding;
+    background-color: white;
+  }
+
+  .modal-footer {
+    padding: 0 $modal-padding $modal-padding $modal-padding;
+    border-top: 0;
+    display: flex;
+  }
+
+}
+
+@import './modals/warning';
+@import './modals/terms';
+@import './modals/onboarding';

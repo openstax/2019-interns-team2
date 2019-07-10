@@ -1,0 +1,36 @@
+# Copyright 2011-2019 Rice University. Licensed under the Affero General Public
+# License version 3 or later.  See the COPYRIGHT file for details.
+
+branches:
+  only:
+    - master
+    - alpha
+    - beta
+    - lms
+    - /^int-.*$/
+    - /^release-.*$/
+dist: xenial
+language: ruby
+addons:
+  chrome: stable
+  postgresql: 9.6
+env:
+  global:
+    - OXT_DB_USER=postgres
+    - OXT_DB_PASS=
+    - OXT_TEST_DB=travis_ci_test
+    - PARALLEL_TEST_PROCESSORS=2
+    - DEMO_MAX_PROCESSES=0
+  matrix:
+    - TAG=speed:fast
+    - TAG=~speed:fast
+rvm: 2.6.1
+cache: bundler
+before_install:
+  - gem install bundler:2.0.1
+bundler_args: --without production --retry=6
+before_script:
+  - bundle exec rake parallel:create parallel:load_schema parallel:seed --trace
+script:
+  - bundle exec rake lint:branch
+  - bundle exec parallel_rspec ./spec --test-options "--tag $TAG"

@@ -1,0 +1,11 @@
+.tooltip {
+  .tooltip-inner {
+    color: $tutor-neutral-darker;
+    @include tutor-shadow(2);
+  }
+  .tooltip-arrow { display: block; }
+}
+
+.popover-header {
+  @include tutor-sans-font(1.75rem, 1.75rem);
+}

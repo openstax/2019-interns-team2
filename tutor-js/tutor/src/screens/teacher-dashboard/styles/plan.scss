@@ -1,0 +1,163 @@
+$calendar-plan-top-margin: 0.5rem;
+// CALENDAR_EVENT_LABEL_ACTIVE_STATIC_HEIGHT
+$calendar-plan-active-height: 3.5rem;
+$calendar-plan-height: 2rem;
+$calendar-plan-top-offset: ($calendar-plan-active-height - $calendar-plan-height)/2;
+$calendar-plan-active-top-offset: $calendar-plan-top-offset - $calendar-plan-top-margin;
+
+$calendar-plan-left-offset: 2px;
+$calendar-plan-left-label-offset: 2 * $calendar-plan-left-offset;
+
+$calendar-inactive-background: $tutor-neutral;
+
+@mixin psuedo-text-label() {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.list-task-plans {
+  .event {
+    transition: background-color 0.1s ease-in;
+
+    @each $plan-type in map-keys($task-plan-colors) {
+      $active-plan-color: task-plan-color($plan-type);
+      $plan-color: fade_out($active-plan-color, 0.75);
+
+      &.type-#{$plan-type} {
+        &.is-continued {
+          &::after {
+            border-color: transparent transparent transparent $plan-color;
+          }
+        }
+
+        &.is-continuation {
+          &::before {
+            border-color: transparent $plan-color transparent transparent;
+          }
+        }
+
+        &:hover,
+        &.active {
+          background-color: $active-plan-color;
+
+          &.is-continued {
+            &::after {
+              border-color: transparent transparent transparent $active-plan-color;
+            }
+          }
+
+          &.is-continuation {
+            &::before {
+              border-color: transparent $active-plan-color transparent transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .plan {
+    font-size: 1.25rem;
+    cursor: pointer;
+    font-weight: bold;
+    @include tutor-plan-display($calendar-inactive-background);
+    transition: background-color 0.1s linear;
+    height: 20px;
+    &.is-new {
+      @include is-progressing-background();
+      border-left: none;
+      label {
+        display: none,
+      }
+    }
+
+    &.is-published,
+    &.is-publishing {
+      @include tutor-plan-set(display);
+    }
+
+    &:not(.is-published) {
+      label:not(.continued)::before {
+        @include is-draft();
+        margin-right: $calendar-plan-left-label-offset;
+      }
+
+      &.is-failed, &.is-killed, &.is-404 {
+        @include tutor-plan-display($tutor-danger);
+        label:not(.continued)::before {
+          content: 'failed';
+        }
+      }
+    }
+    &.is-publishing {
+      label:not(.continued)::before {
+        @include is-publishing();
+        margin-right: $calendar-plan-left-label-offset;
+      }
+    }
+    &.is-published {
+      &:not(.is-open):not(.is-publishing) {
+        label:not(.continued)::before {
+          @include is-not-open();
+          margin-right: $calendar-plan-left-label-offset;
+        }
+      }
+
+      &.is-open.is-trouble {
+        label:not(.continued)::before {
+          margin-right: $calendar-plan-left-label-offset;
+        }
+      }
+    }
+
+    label {
+      padding-left: $calendar-plan-left-label-offset;
+      text-align: left;
+      display: block;
+      margin-bottom: 0;
+      cursor: pointer;
+      transition: background .1s ease-in, margin-top .1s ease-in;
+    }
+
+    &.plan-label-long {
+      label {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+
+
+    &:hover,
+    &.active,
+    &.open {
+      z-index: 2;
+    }
+
+    &.plan-label-long {
+      &:hover,
+      &.active,
+      &.open {
+        max-height: none;
+
+        label {
+          overflow: visible;
+          white-space: normal;
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  .plan-clone-placeholder {
+    position: absolute;
+    display: inline;
+    border: 1px solid $tutor-neutral-lighter;
+    @include tutor-plan-set(display);
+    label {
+      margin: 0;
+      padding: 0 5px;
+    }
+  }
+
+}

@@ -1,0 +1,32 @@
+<% # Clients of this partial must provide the following variables:
+   # users
+   # action_partial
+   # Additionally, they can supply the following variables:
+   action_heading ||= 'Actions'
+   sign_in_as ||= false
+%>
+
+<%= osu.action_list(
+    records: users,
+    list: {
+      headings: ["Username#{' (click to sign in as)' if sign_in_as}",
+                 'Title', 'Name', 'Deleted?', action_heading],
+      widths: ['30%', '10%', '40%', '10%', '10%'],
+      data_procs:
+        [
+          ->(user) do
+            short_username = user.username&.truncate(32)
+            sign_in_as ?
+              link_to(short_username, become_admin_user_url(user), method: :put) : short_username
+          end,
+          ->(user) { user.title || '---' },
+          ->(user) { user.name || '---' },
+          ->(user) { yn(user.deleted_at) || '---' },
+          ->(user) do
+            "<span id=user-#{user.id}-actions>#{
+              render partial: action_partial, locals: { user: user }
+            }</span>".html_safe
+          end
+        ]
+    }
+  ) %>

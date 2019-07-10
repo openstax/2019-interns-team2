@@ -1,0 +1,35 @@
+<% method ||= :post %>
+
+<%= render partial: 'manager/teachers/index',
+           locals: { teachers: @teachers,
+                     extra_headers: 'Actions',
+                     extra_fields_proc: lambda do |teacher| %>
+      <td>
+        <% if teacher.deleted? %>
+        <%= link_to 'Readd to course',
+                    restore_admin_teacher_path(teacher),
+                    method: :put,
+                    class: 'btn btn-xs btn-primary',
+                    data: {
+                      confirm: "Are you sure you want to readd teacher \"#{teacher.role.name
+                               }\" to the course?"
+                    } %>
+        <% else %>
+        <%= link_to 'Remove from course',
+                    admin_teacher_path(teacher),
+                    method: :delete,
+                    class: 'btn btn-xs btn-primary',
+                    data: {
+                      confirm: "Are you sure you want to remove teacher \"#{teacher.role.name
+                               }\" from the course?"
+                    } %>
+        <% end %>
+      </td>
+<% end } %>
+
+<%= form_tag(url, method: method, id: 'assign-teachers-form') do |f| %>
+  <div class="form-group">
+    <%= text_field_tag :course_teacher, nil, class: 'form-control',
+                                             placeholder: 'Start typing to search for a user...' %>
+  </div>
+<% end %>

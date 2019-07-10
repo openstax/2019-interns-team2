@@ -1,0 +1,59 @@
+// is imported inside .tutor-top-navbar
+.center-control {
+  $icon-color: $tutor-neutral-dark;
+  font-size: 1.8rem;
+  font-weight: bold;
+  display: flex;
+  flex-wrap: wrap;
+  pointer-events: auto;
+  align-items: center;
+  justify-content: center;
+  .fa-stack {
+    .ox-icon {
+      // icon needs to be hoverable for tooltip
+      z-index: 10;
+    }
+  }
+
+  .icons {
+    display: flex;
+    align-items: center;
+
+    & > * {
+      margin: 0 0.5rem;
+      @include media-breakpoint-up('md') {
+        margin: 0 1rem;
+      }
+    }
+    // .due-date {
+    //   display: flex;
+    //   align-items: center;
+    //   .ox-icon {
+    //     margin: 0;
+    //   }
+    //   .calendar-text {
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     margin-top: 5px;
+    //   }
+    // }
+  }
+
+  .note-summary-toggle {
+    background-color: transparent;
+    border: none;
+    .i {
+      fill: $icon-color;
+    }
+    &:hover,
+    &.active {
+      .i {
+        fill: $tutor-info;
+      }
+    }
+    svg {
+      height: 26px;
+    }
+  }
+}

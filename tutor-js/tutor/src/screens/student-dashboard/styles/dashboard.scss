@@ -1,0 +1,51 @@
+.student-dashboard {
+  $small-height-breakpoint: 600px;
+  background-color: ui-color(page-bg);
+  min-height: calc(100vh - #{$tutor-navbar-height});
+  .container {
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    @include media-breakpoint-down(md) {
+      max-width: 100%;
+    }
+  }
+
+  .actions-box {
+    padding: 10px;
+    text-align: center;
+
+    &.browse-the-book {
+      flex-direction: row;
+      background-color: transparent;
+      border: 0;
+      height: 80px;
+      a {
+        display: flex;
+        align-items: center;
+        div {
+          text-align: left;
+          margin-left: 1rem;
+          @include tutor-sans-font(2.5rem, 3rem);
+          font-weight: 900;
+          color: $tutor-black;  // override link color
+        }
+        &:hover { text-decoration: initial; }
+
+        @each $book in map-keys($openstax-book-thumbnails) {
+          &[data-appearance=#{$book}] {
+            &::before {
+              content: "";
+              min-width: 80px;
+              height: 100%;
+              display: block;
+              background-repeat: no-repeat;
+              background-size: auto 100%;
+              @include book-content-thumbnail($book);
+            }
+          }
+        }
+      }
+    }
+
+  }
+}

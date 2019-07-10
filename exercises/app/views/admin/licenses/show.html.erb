@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @license.name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @license.title %>
+</p>
+
+<p>
+  <strong>URL:</strong>
+  <%= @license.url %>
+</p>
+
+<p>
+  <strong>Publishing Contract:</strong>
+  <%= @license.publishing_contract %>
+</p>
+
+<p>
+  <strong>Copyright Notice:</strong>
+  <%= @license.copyright_notice %>
+</p>
+
+<%= link_to(edit_admin_license_url(@license)) do
+      '<span class="glyphicon glyphicon-pencil">Edit</span>'.html_safe
+    end %> |
+<%= link_to(admin_licenses_url) do
+      '<span class="glyphicon glyphicon-list">List</span>'.html_safe
+    end %>

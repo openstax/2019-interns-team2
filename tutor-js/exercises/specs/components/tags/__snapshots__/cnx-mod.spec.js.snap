@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CNX mod tags component renders mod tags 1`] = `
+.c0 {
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+<div
+  className="tag-type"
+>
+  <div
+    className="heading"
+  >
+    <span
+      className="label"
+    >
+      CNX Module
+    </span>
+    <div
+      className="controls"
+    >
+      <button
+        className="ox-icon-plus-circle btn btn-plain"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-plus-circle fa-w-16 ox-icon ox-icon-plus-circle c0"
+          data-icon="plus-circle"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div
+    className="tag"
+  >
+    <input
+      className="form-control"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="########-####-####-####-############"
+      type="text"
+      value="80d2e9ef-abee-40c2-8586-5459a67c81f3"
+    />
+    <span
+      className="controls"
+    >
+      <button
+        className="ox-icon-trash btn btn-plain"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-trash-alt fa-w-14 ox-icon ox-icon-trash c0"
+          data-icon="trash-alt"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 448 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </button>
+    </span>
+  </div>
+  <div
+    className="tag"
+  >
+    <input
+      className="form-control"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="########-####-####-####-############"
+      type="text"
+      value="cb7cf05b-7e16-4a53-a498-003b01ec3d7f"
+    />
+    <span
+      className="controls"
+    >
+      <button
+        className="ox-icon-trash btn btn-plain"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-trash-alt fa-w-14 ox-icon ox-icon-trash c0"
+          data-icon="trash-alt"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 448 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </button>
+    </span>
+  </div>
+</div>
+`;

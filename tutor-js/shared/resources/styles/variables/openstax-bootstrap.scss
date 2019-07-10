@@ -1,0 +1,168 @@
+$gray-base:              $openstax-black;
+$openstax-neutral-darker:            $openstax-neutral-darker; // #222
+$gray-dark:              $openstax-neutral-dark;   // #333
+$gray:                   $openstax-neutral; // #555
+$openstax-neutral-light:             $openstax-neutral-light; // #777
+$openstax-neutral-lighter:           $openstax-neutral-lighter; // #eee
+
+$brand-primary:         $openstax-primary; // openstax-primary, orange
+$brand-success:         $openstax-success; // openstax-secondary, green
+$brand-info:            $openstax-info;    // openstax-tertiary-neutral-light, light blue-ish
+$brand-warning:         $openstax-warning; // openstax-quaternary, yellow
+$brand-danger:          $openstax-danger;  // openstax-danger, red
+
+$container-large-desktop:      (1170px + $grid-gutter-width);
+
+$link-hover-color:      darken($link-color, 5%);
+
+$popover-max-width:                   none;
+
+$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$font-family-base:        $font-family-sans-serif;
+
+$font-size-base:          14px;
+
+$line-height-base:        1.428571429; // 20/14
+
+$border-radius:        2px;
+$border-radius-lg:       4px;
+
+// $border-radius-sm:       3px;
+
+// //** Global color for active items (e.g., navs or dropdowns).
+// $component-active-color:    #fff;
+// //** Global background color for active items (e.g., navs or dropdowns).
+// $component-active-bg:       $brand-primary;
+
+// //** Width of the `border` for generating carets that indicator dropdowns.
+// $caret-width-base:          4px;
+// //** Carets increase slightly in size for larger components.
+// $caret-width-large:         5px;
+
+
+// //== Tables
+// //
+// //## Customizes the `.table` component with basic values, each used across all table variations.
+
+// //** Padding for `<th>`s and `<td>`s.
+// $table-cell-padding:            8px;
+// //** Padding for cells in `.table-condensed`.
+// $table-condensed-cell-padding:  5px;
+
+// //** Default background color used for all tables.
+// $table-bg:                      transparent;
+// //** Background color used for `.table-striped`.
+// $table-bg-accent:               #f9f9f9;
+// //** Background color used for `.table-hover`.
+// $table-bg-hover:                #f5f5f5;
+// $table-bg-active:               $table-bg-hover;
+
+// //** Border color for table and cell borders.
+// $table-border-color:            #ddd;
+
+
+// //== Buttons
+// //
+// //## For each of Bootstrap's buttons, define text, background and border color.
+
+// $btn-font-weight:                normal;
+
+// $btn-default-color:              #333;
+// $btn-default-bg:                 #fff;
+// $btn-default-border:             #ccc;
+
+// $btn-primary-color:              #fff;
+// $btn-primary-bg:                 $brand-primary;
+// $btn-primary-border:             darken($btn-primary-bg, 5%);
+
+// $btn-success-color:              #fff;
+// $btn-success-bg:                 $brand-success;
+// $btn-success-border:             darken($btn-success-bg, 5%);
+
+// $btn-info-color:                 #fff;
+// $btn-info-bg:                    $brand-info;
+// $btn-info-border:                darken($btn-info-bg, 5%);
+
+// $btn-warning-color:              #fff;
+// $btn-warning-bg:                 $brand-warning;
+// $btn-warning-border:             darken($btn-warning-bg, 5%);
+
+// $btn-danger-color:               #fff;
+// $btn-danger-bg:                  $brand-danger;
+// $btn-danger-border:              darken($btn-danger-bg, 5%);
+
+// $btn-link-disabled-color:        $openstax-neutral-light;
+
+
+// //== Forms
+// //
+// //##
+
+// //** `<input>` background color
+// $input-bg:                       #fff;
+// //** `<input disabled>` background color
+// $input-bg-disabled:              $openstax-neutral-lighter;
+
+// //** Text color for `<input>`s
+// $input-color:                    $gray;
+// //** `<input>` border color
+// $input-border:                   #ccc;
+
+// // TODO: Rename `$input-border-radius` to `$input-border-radius` in v4
+//** Default `.form-control` border radius
+// This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
+$input-border-radius:            0;
+//** Large `.form-control` border radius
+$input-border-radius-lg:      0;
+//** Small `.form-control` border radius
+$input-border-radius-sm:      0;
+
+$zindex-popover:           1060;
+
+
+$grid-gutter-width:         30px;
+
+$container-tablet:             (690px + $grid-gutter-width);
+
+$container-sm:                 $container-tablet;
+
+
+$container-md:                 $container-desktop;
+
+$state-info-text:                shade($openstax-info, 40%);
+$state-info-bg:                  tint($openstax-info, 80%);
+$state-info-border:              shade($openstax-info, 60%);
+
+
+$state-danger-text:              shade($openstax-danger, 40%);
+$state-danger-bg:                tint($openstax-danger, 80%);
+$state-danger-border:            shade($openstax-danger, 60%);
+
+$tooltip-color:               $openstax-neutral;
+
+$tooltip-bg:                  $openstax-white;
+$tooltip-opacity:             1;
+
+$popover-bg:                          #fff;
+//** Popover maximum width
+$popover-max-width:                   276px;
+//** Popover border color
+$popover-border-color:                rgba(0,0,0,.2);
+//** Popover fallback border color
+$popover-fallback-border-color:       #ccc;
+
+//** Popover title background color
+$popover-header-bg:                    darken($popover-bg, 3%);
+
+//** Popover arrow width
+$popover-arrow-width:                 10px;
+//** Popover arrow color
+$popover-arrow-color:                 $popover-bg;
+
+//** Popover outer arrow width
+$popover-arrow-outer-width:           ($popover-arrow-width + 1);
+//** Popover outer arrow color
+$popover-arrow-outer-color:           fadein($popover-border-color, 5%);
+//** Popover outer arrow fallback color
+$popover-arrow-outer-fallback-color:  darken($popover-fallback-border-color, 20%);

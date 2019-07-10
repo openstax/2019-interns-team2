@@ -1,0 +1,64 @@
+<style type="text/css">
+  .deleted {
+    color: #aaa;
+    text-decoration: line-through;
+  }
+</style>
+
+<h4 style="margin-top:30px">Course Info</h4>
+
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th style="width:150px">Course Name</th>
+      <th>Course UUID</th>
+      <th>Created At</th>
+      <th style="width:300px">Link to SF</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @course.name %></td>
+      <td><%= @course.uuid %></td>
+      <td><small><%= @course.created_at %></small></td>
+      <td><%= salesforce_course_link(@course) %></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Period Info</h4>
+
+<small>Grayed out means the period has been deleted / archived.</small>
+
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th style="width: 150px">Period Name</th>
+      <th>Period UUID</th>
+      <th>Created At</th>
+      <th>Archived At</th>
+      <th style="width: 300px">Link to SF</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @periods.each_with_index do |period, pp| %>
+    <tr>
+      <td><span class="<%= 'deleted' if period.archived? %>"><%= period.name %><span></td>
+      <td><%= period.uuid %></td>
+      <td><small><%= period.created_at %></small></td>
+      <td><small><%= period.archived_at %></small></td>
+      <td><%= salesforce_period_link(period) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= form_for @course, as: :course, url: admin_course_path,
+                      method: :put, html: {class: 'form-inline'} do |f| %>
+  <div class="form-group">
+    Exclude from Salesforce?
+    <%= f.check_box :is_excluded_from_salesforce, class: 'form-control' %>
+  </div>
+
+  <%= f.submit 'Save', class: 'btn btn-primary btn-xs', id: 'exclusion_save' %>
+<% end %>

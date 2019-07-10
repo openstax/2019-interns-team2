@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<openstax_exercises_url>/api/exercises/search"
+    body:
+      encoding: UTF-8
+      string: 'page=1&q=content%3A%22WhAt%20Is%20KiNeMaTiCs?%22+collaborator%3Aopenstax'
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Accept:
+      - application/vnd.openstax.v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 28 Oct 2015 20:06:38 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - W/"cecc5091065ddb34595c5dd1df36624b"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - _exercises_session=Wm1qbzFURG4zTkhlTzRwR2IzZXhETHNYTUw3WGk2VHZnd2VtcDg3SkcwNzErQVVCRVpjMWRCWXlIS25NWi9QRjRTWkE0SlRrUjk0RFVrNWgrTllqK0E9PS0tanpZVjVucnlYc21uTmhVM1pXa2NrZz09--e9f5cc6bedc2789485c56740faa526c79ce07911;
+        path=/; HttpOnly
+      X-Request-Id:
+      - f565213f-c424-4565-925a-ebda01a33f71
+      X-Runtime:
+      - '0.473695'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+    body:
+      encoding: UTF-8
+      string: '{"total_count":1,"items":[{"uid":"2060@1","number":2060,"version":1,"published_at":"2015-09-16T20:13:57.247Z","editors":[],"authors":[{"user_id":1,"name":"OpenStax"}],"copyright_holders":[{"user_id":2,"name":"Rice
+        University"}],"derived_from":[],"attachments":[],"tags":["inbook-yes","display-free-response","display-rec-sensitive","dok1","time-short","blooms-1","k12phys","os-practice-concepts","k12phys-ch04","k12phys-ch04-s01","k12phys-ch04-s01-lo01","k12phys-ch04-ex001"],"stimulus_html":"","questions":[{"id":2060,"stimulus_html":"","stem_html":"What
+        is kinematics?","answers":[{"id":8178,"content_html":"Kinematics is the study
+        of atomic structures.","correctness":"0.0","feedback_html":"Atomic structure
+        is studied under atomic physics, not classical mechanics."},{"id":8177,"content_html":"Kinematics
+        is the study of dimensions.","correctness":"0.0","feedback_html":"Dimensions
+        are studied under theoretical physics, not classical mechanics."},{"id":8176,"content_html":"Kinematics
+        is the study of the cause of motion.","correctness":"0.0","feedback_html":"Force
+        and its effects are studied under dynamics."},{"id":8175,"content_html":"Kinematics
+        is the study of motion.","correctness":"1.0","feedback_html":"The motion of
+        a body is studied under kinematics."}],"solutions":[{"uid":"2060@1","number":2060,"version":1,"published_at":"2015-09-16T20:13:57.253Z","editors":[],"authors":[{"user_id":1,"name":"OpenStax"}],"copyright_holders":[{"user_id":2,"name":"Rice
+        University"}],"derived_from":[],"attachments":[],"solution_type":"detailed","content_html":"Kinematics
+        is the study of motion."}],"hints":[],"formats":["free-response","multiple-choice"],"combo_choices":[]}]}]}'
+    http_version: 
+  recorded_at: Wed, 28 Oct 2015 20:06:38 GMT
+recorded_with: VCR 2.9.3

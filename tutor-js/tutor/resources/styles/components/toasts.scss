@@ -1,0 +1,54 @@
+.toast-notification {
+
+  .scores {
+    iframe {
+      border: 0;
+      height: 0;
+      width: 0;
+    }
+  }
+
+  .reload {
+    button {
+      margin-top: 1rem;
+    }
+  }
+
+}
+
+.lms-push-partial-failure {
+  .modal-body {
+    .controls {
+      margin-top: 40px;
+    }
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      .btn {
+        color: $tutor-neutral-dark;
+        font-size: 16px;
+        padding: 20px 0;
+      }
+    }
+    table th {
+      vertical-align: bottom;
+      &.average {
+        display: flex;
+        justify-content: space-between;
+        .ox-icon {
+          border: 1px solid $tutor-neutral;
+          padding: 4px;
+        }
+      }
+    }
+    .panel {
+      border: 0;
+      box-shadow: none;
+      margin: 0;
+      .panel-body {
+        max-height: 320px;
+        overflow: auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+// shared openstax components
+
+@import './definitions';
+@import '../../../shared/resources/styles/main';
+
+// App Global Styling
+@import './global';
+
+@import './book-content/index';
+
+// Component Styling
+@import './components/course-page';
+@import './components/branding/course';
+@import './components/top-nav-bar';
+@import './components/toasts';
+@import './components/html';
+@import './components/tabs';
+@import './components/paging-navigation';
+@import './components/enrollment-student-id';
+@import './components/dialog';
+@import './components/tutor-input';
+@import './components/media-preview';
+@import './components/my-courses';
+@import './components/tutor-dialog';
+@import './components/task-teacher-review/index';
+@import './components/plan-stats';
+@import './components/multi-select';
+@import './components/registration/index';
+@import './components/exercises';
+@import './components/tutor-input';
+@import './components/book-menu';
+@import './components/tri-state-checkbox';
+@import './components/exercise-preview';
+@import './components/assignment-links';
+@import './components/icon';
+@import './components/cc-student-redirect';
+@import './components/course-title-banner';
+@import './components/no-periods';
+@import './components/copy-on-focus-input';
+@import './components/invalid-page';
+@import './components/tours';
+@import './components/info-page';
+@import './components/modals';
+@import './components/payments';
+@import './components/choices-listing';
+@import './components/notes/note';
+
+body[data-js-error]::before {
+  content: attr(data-js-error);
+  font-size: 100px;
+  color: red;
+}

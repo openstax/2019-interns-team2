@@ -1,0 +1,11 @@
+<div class='generic-error'>
+  <h2><%= heading || "An error occurred." %></h2>
+
+  <% if body.present? %>
+  <p><%= body %></p>
+  <% end %>
+
+  <% if show_apology %>
+  <p>We're sorry this error occurred. If you need help, please contact OpenStax.</p>
+  <% end %>
+</div>

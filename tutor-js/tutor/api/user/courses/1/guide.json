@@ -1,0 +1,60 @@
+{
+  "title": "Biology For AP Courses",
+  "period_id": "2",
+  "page_ids": [
+    "2",
+    "3"
+  ],
+  "children": [
+    {
+      "children": [
+        {
+          "page_ids": [
+            "2"
+          ],
+          "practice_count": 0,
+          "clue": {
+            "minimum": 0.41647979570878235,
+            "most_likely": 0.48026796534380245,
+            "maximum": 0.6802679653438024,
+            "is_real": true
+          },
+          "questions_answered_count": 8,
+          "chapter_section": [1,1],
+          "title": "The Science of Biology"
+        },
+        {
+          "page_ids": [
+            "3"
+          ],
+          "practice_count": 0,
+          "clue": {
+            "minimum": 0.38865469011386733,
+            "most_likely": 0.48026796534380245,
+            "maximum": 0.6802679653438024,
+            "is_real": true
+          },
+          "questions_answered_count": 2,
+          "chapter_section": [1,2],
+          "title": "Themes and Concepts of Biology"
+        }
+      ],
+      "page_ids": [
+        "2",
+        "3"
+      ],
+      "practice_count": 0,
+      "clue": {
+        "minimum": 0.48026796534380245,
+        "most_likely": 0.6802679653438024,
+        "maximum": 0.8897174467418332,
+        "is_real": true
+      },
+      "questions_answered_count": 10,
+      "chapter_section": [
+        1
+      ],
+      "title": "The Study of Life"
+    }
+  ]
+}

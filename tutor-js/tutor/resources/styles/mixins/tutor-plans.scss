@@ -1,0 +1,153 @@
+@mixin tutor-plan-cell($plan-type) {
+  $plan-color: task-plan-color($plan-type);
+  color: $plan-color;
+  background-color: fade_out($plan-color, 0.975);
+  transition: background-color 0.1s ease-in;
+}
+
+@mixin tutor-plan-cell-active($plan-type) {
+  $plan-color: task-plan-color($plan-type);
+  text-decoration: none;
+  background-color: fade_out($plan-color, 0.75);
+}
+
+@mixin tutor-plan-heading($plan-type, $plan-border-width: 5px) {
+  $plan-color: task-plan-color($plan-type);
+  color: $tutor-neutral-darker;
+  background-color: fade_out($plan-color, 0.8);
+  border-top-color: $plan-color;
+  border-top-width: $plan-border-width;
+  border-top-style: solid;
+}
+
+@mixin tutor-plan-header($plan-type, $plan-border-width: 12px) {
+  $plan-color: task-plan-color($plan-type);
+
+  color: $tutor-neutral-darker;
+  background-color: fade_out($plan-color, 0.8);
+  border-left-color: $plan-color;
+  border-left-width: $plan-border-width;
+  border-left-style: solid;
+
+  button.close {
+    opacity: 0.5;
+    color: $close-color;
+    text-shadow: $close-text-shadow;
+
+    &:hover,
+    &:focus {
+      opacity: 0.75;
+    }
+  }
+}
+
+@mixin tutor-plan-modal($plan-type) {
+  $plan-color: task-plan-color($plan-type);
+
+  .modal-content {
+    .modal-header {
+      @include tutor-plan-header($plan-type);
+    }
+  }
+}
+
+@mixin tutor-plan-sidebar-type($plan-type) {
+  $plan-color: task-plan-color($plan-type);
+  &[data-assignment-type=#{$plan-type}] {
+    color: $tutor-neutral-darker;
+    border-left: 4px solid transparent;
+    .grabby-dots {
+      fill: $plan-color;
+    }
+    &:hover {
+      border-left: 4px solid $plan-color;
+    }
+  }
+}
+
+@mixin tutor-plan-sidebar() {
+  @each $plan-type in map-keys($task-plan-colors) {
+    @include tutor-plan-sidebar-type($plan-type);
+  }
+}
+
+@mixin tutor-plan-add($plan-type) {
+  $plan-color: task-plan-color($plan-type);
+
+  color: $tutor-neutral-darker;
+  border-left: 4px solid transparent;
+
+  > * {
+    color: $tutor-neutral-darker;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      background: transparent;
+    }
+  }
+
+  &:hover,
+  &.active,
+  &.open {
+    border-left: 4px solid $plan-color;
+    text-decoration: none;
+    @include tutor-shadow(subtle);
+  }
+}
+
+@mixin tutor-plan-display($plan-color) {
+
+  color: $tutor-neutral-darker;
+  border-left: 3px solid $plan-color;
+  background: fade_out($plan-color, 0.8);
+
+  a {
+    color: $tutor-neutral-darker;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &:hover,
+  &.active,
+  &.open {
+    text-decoration: none;
+    label{
+      background: fade_out($plan-color, 0.5);
+    }
+  }
+}
+
+@mixin tutor-plan-set($element, $selector: '') {
+  @each $plan-type in map-keys($task-plan-colors) {
+    &[data-assignment-type='#{$plan-type}'] #{$selector} {
+      @if $element == cell {
+        @include tutor-plan-cell($plan-type);
+      }
+      @if $element == cell-active {
+        @include tutor-plan-cell-active($plan-type);
+      }
+      @if $element == heading {
+        @include tutor-plan-heading($plan-type);
+      }
+      @if $element == header {
+        @include tutor-plan-header($plan-type);
+      }
+      @if $element == modal {
+        @include tutor-plan-modal($plan-type);
+      }
+      @if $element == sidebar {
+        @include tutor-plan-sidebar($plan-type);
+      }
+      @if $element == add {
+        @include tutor-plan-add($plan-type);
+      }
+      @if $element == display {
+        @include tutor-plan-display(task-plan-color($plan-type));
+      }
+    }
+  }
+}

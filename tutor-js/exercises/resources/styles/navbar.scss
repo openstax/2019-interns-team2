@@ -1,0 +1,29 @@
+.navbar {
+
+  .exercise-navbar-controls {
+    display: flex;
+    align-items: center;
+
+    > * {
+      margin-left: 1rem;
+    }
+  }
+
+  .dropdown-menu .logout {
+    input[type=submit] {
+      border: 0;
+      background-color: transparent;
+      width: 100%;
+      text-align: left;
+      padding-left: 0;
+      text-transform: none;
+      text-align: left;
+      &:hover { text-decoration: initial; }
+    }
+  }
+
+  button + button {
+    margin-left: 1rem;
+  }
+
+}

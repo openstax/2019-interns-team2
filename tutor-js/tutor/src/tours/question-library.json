@@ -1,0 +1,77 @@
+[
+{
+  "id": "question-library-super",
+  "autoplay": true,
+  "standalone": true,
+  "group_id": "question-library",
+  "audience_tags": [
+    "teacher", "teacher-preview"
+  ],
+  "steps": [
+    {
+      "customComponent": "HowToUseQL"
+    }, {
+      "customComponent": "TipsNowOrLater",
+      "is_fixed": true,
+      "body": "More about the Question Library in our \"Page tips.\"",
+      "anchor_id": "menu-option-page-tips",
+      "action": {
+        "id": "open-support-menu"
+      },
+      "position": "left"
+    }
+  ]
+}, {
+  "id": "preview-question-library-sections-chooser",
+  "group_id": "question-library",
+  "showOverlay": false,
+  "audience_tags": [
+    "teacher", "teacher-preview"
+  ],
+  "steps": [
+    {
+      "customComponent": "HowToUseQL"
+    }, {
+      "title": "View questions",
+      "body" : "Select chapters you plan to assign, then scroll down and click \"Show questions\".\n\nAnd don't worry — students never get questions from sections you don't assign."
+    }
+  ]
+}, {
+
+  "id": "question-library-exercises",
+  "group_id": "question-library",
+  "audience_tags": [
+    "teacher", "teacher-preview"
+  ],
+  "steps": [
+    {
+      "title": "How OpenStax Tutor uses questions",
+      "body": "When you assign a reading or homework, OpenStax Tutor will add personalized and spaced practice questions.",
+      "customComponent": "ForceScrollOnMount"
+    }, {
+      "title": "Reading vs Homework",
+      "body": "Click \"Reading\" to view questions reserved for reading assignments. Click \"Homework\" to view questions reserved for homework assignments.",
+      "anchor_id": "exercise-type-toggle",
+      "position": "bottom",
+      "action": {
+        "id": "reposition"
+      }
+    }, {
+      "title": "Excluding questions",
+      "body": "See a question that should never be used? Hover over it and click \"exclude.\" :best-practices: Don't exclude too many — OpenStax Tutor needs several questions to make its personalized recommendations.",
+      "position": "right",
+      "anchor_id": "exercise-preview",
+      "action": {
+        "id": "reposition"
+      }
+    }, {
+      "title": "Details view",
+      "body": "See question details and report a question error by hovering over it and selecting \"Question details.\"",
+      "position": "right",
+      "anchor_id": "exercise-preview",
+      "action": {
+        "id": "hover-exercise"
+      }
+    }
+  ]
+}]

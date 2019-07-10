@@ -1,0 +1,13 @@
+#!/bin/bash
+cd "$(dirname "$0")/.." || exit 111
+source ./script/bootstrap || exit 111
+
+if [[ ! ${OX_PROJECT} ]]; then
+  declare -x OX_PROJECT="tutor"
+  _say "Running tutor tests because OX_PROJECT environment variable was not specified"
+fi
+
+./bin/lint branch || exit 112
+
+# shellcheck disable=SC2068
+try yarn run ci -- $@

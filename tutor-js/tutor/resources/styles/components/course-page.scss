@@ -1,0 +1,61 @@
+.course-page {
+
+  display: flex;
+  flex-direction: column;
+
+  .controls-wrapper {
+    background-color: $tutor-neutral-cool;
+    padding: 10px 40px;
+    > * {
+      @include course-page-wrapper-child();
+    }
+    .sub-title {
+      font-weight: bold;
+      font-size: 24px;
+      min-height: 55px;
+      display: flex;
+      align-items: center;
+    }
+    .ox-icon {
+      font-size: 20px;
+      transistion: color 0.3s;
+    }
+  }
+
+  > .body-wrapper {
+    flex: 1;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    > .body {
+      @include course-page-wrapper-child();
+      display: block;
+
+      > .loading-animation {
+        margin-top: 120px;
+      }
+    }
+  }
+
+  .btn-link {
+    border-style: solid;
+    border-bottom-width: 1px;
+  }
+
+  @each $book in map-keys($openstax-books) {
+    &[data-appearance=#{$book}] .title-wrapper {
+      color: openstax-book-color($book, primary);
+      background-color: openstax-book-color($book, secondary);
+
+      .btn-link,
+      .control {
+        color: openstax-book-color($book, control);
+        border-color: openstax-book-color($book, control);
+        &:hover {
+          color: darken(openstax-book-color($book, control), 20%);
+          border-color: darken(openstax-book-color($book, control), 20%);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,112 @@
+$calendar-header-padding: 2rem;
+.list-task-plans {
+  .controls-wrapper {
+    background-color: white;
+    padding-bottom: 0;
+  }
+  .controls-wrapper > .calendar-header {
+
+    // expand "no sections" message so it completely fills course
+    .no-periods-message { min-width: 100%; }
+
+    .btn-default {
+      background-color: $tutor-neutral-lightest;
+    }
+
+    .btn-default {
+      background-color: $tutor-neutral-lightest;
+    }
+
+    .sidebar-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      width: $calendar-sidebar-width;
+      background-color: $tutor-primary;
+      color: white;
+
+      &.open {
+        background-color: $tutor-neutral-lite;
+        .ox-icon { color: $tutor-neutral-darker; }
+      }
+    }
+    .calendar-header-actions-buttons {
+      display: flex;
+      flex: auto;
+      justify-content: flex-end;
+      .btn {
+        border-radius: 0;
+        border-left-width: 0;
+        height: 100%;
+        align-items: center;
+        display: flex;
+        padding: 0 1.5rem;
+        &:first-of-type {
+          border-left-width: 1px;
+        }
+      }
+    }
+
+    flex-direction: row;
+
+    @media (max-width: 1050px) {
+      flex-direction: column-reverse;
+      .sidebar-toggle {
+      }
+      .calendar-header-actions-buttons {
+        margin-bottom: 20px;
+      }
+    }
+
+    .no-periods-text {
+      display: block;
+    }
+  }
+
+  .calendar-header {
+
+    &-actions {
+      border-bottom: 1px solid $tutor-neutral-light;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    &-navigation {
+      text-align: center;
+      font-size: 3rem;
+      padding: $calendar-header-padding 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    &-label {
+      display: flex;
+      align-items: center;
+    }
+
+    &-control {
+      @include no-select();
+      color: $tutor-neutral-darker;
+      padding: 0 $calendar-header-padding;
+      display: inline-block;
+
+      &.previous {
+        float: left;
+      }
+
+      &.next {
+        float: right;
+      }
+
+      &:hover {
+        color: $tutor-neutral;
+        text-decoration: none;
+      }
+      &:active,
+      &:visited {
+        text-decoration: none;
+      }
+    }
+  }
+}

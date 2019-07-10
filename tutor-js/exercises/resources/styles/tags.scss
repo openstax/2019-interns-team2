@@ -1,0 +1,61 @@
+.tags {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr) ) ;
+
+  .controls i {
+    cursor: pointer;
+    font-size: 120%;
+  }
+
+  .tag-type {
+    margin-top: 2rem;
+
+    .heading {
+      display: flex;
+      justify-content: space-between;
+      .label {
+        padding: 0;
+        color: black;
+        font-weight: bolder; font-size: 110%;
+      }
+    }
+    &.has-single-tag {
+      .tag .controls{ visibility: hidden; }
+    }
+    .tag {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+
+      &.has-error {
+        input, select {
+          border-color: red;
+        }
+        .fa-exclamation-triangle {
+          color: red;
+          margin: 0 0.5rem;
+        }
+      }
+
+      input, select {
+        width: 100%;
+        flex: 1;
+        margin-right: 0.5rem;
+      }
+
+      &.format-type {
+        flex-direction: column;
+        align-items: flex-start;
+        .form-group {
+          margin: 0 0 0 15px;
+          .radio { margin: 5px 0 }
+          .checkbox { margin: 0; }
+        }
+      }
+
+    }
+
+  }
+}

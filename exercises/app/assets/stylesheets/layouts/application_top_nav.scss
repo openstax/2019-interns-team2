@@ -1,0 +1,105 @@
+@import "common";
+@import "compass/css3";
+@import "compass/utilities";
+
+#top-nav-frame {
+  height: $application_top_nav_height;
+  background-color: white;
+  border: 1px solid rgb(228, 224, 222);
+}
+
+#top-nav-content {
+  padding-left:  12px;
+
+  input[type='text'] {
+    width: 200px;
+    height: $application_top_nav_height - 10px;
+    margin-top:4px;
+    margin-right: 4px;
+    padding: 0 0 0 5px;
+    float: right;
+    font-size:11px;
+    border: none;
+    @include border-radius(0px);
+    background: 186px 5px image-url('search_lens.png') no-repeat  rgb(234,232,232) ;
+  }
+
+}
+
+#top-nav-links {
+
+  ul {
+    float: left;
+
+    padding:  0px 0px  0px 0px;
+    margin:   0px 0px 10px 0px;
+  }
+
+  li {
+    display: inline;
+
+    height:  $application_top_nav_height;
+    margin:  0px 0px;
+
+    list-style-type: none;
+    text-align:      center;
+  }
+
+  a {
+    color:           black;
+    text-decoration: none;
+
+    &:hover {
+      color:            white;
+      background-color: $hot_blue;
+    }
+  }
+
+  .top-nav-link {
+    float: left;
+
+    display:  inline; 
+    position: relative;
+
+    padding-right: 9px;
+    margin-right: 9px;
+
+    font-size:   10px;
+    font-family: arial, helvetica, sans-serif;
+    line-height: $application_top_nav_height;
+
+    &:hover {
+      color: $hot_blue;
+    }
+
+    em {
+       position: absolute;
+       top:      8px;
+       right:     0px;
+       width: 1px;
+       height: 12px;
+       background: image-url("links_dash.png") no-repeat top;
+
+       &.last {
+        background: none;
+       }
+
+       z-index: 2;
+    }
+  }
+
+  .current {
+    color:            white;
+    background-color: $hot_blue ! important;
+  }
+
+  .help-link-icon {
+    height:         12px;
+    width:          12px;
+    margin-top:     -2px; 
+    padding-left:    5px;
+
+    vertical-align: middle; 
+  }
+
+}

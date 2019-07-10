@@ -1,0 +1,24 @@
+// External Libraries
+// @import './variables/paths';
+// @import './globals/externals';
+
+@import './variables/index';
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+@import './mixins/index';
+
+@import './components/ox-colored-stripe';
+
+.openstax {
+  @import './_components';
+
+  &-wrapper {
+    @import './components/breadcrumbs/index';
+    @import './components/breadcrumbs/icons';
+    @import './components/enroll/new-registration';
+    @import './globals/icons';
+  }
+}

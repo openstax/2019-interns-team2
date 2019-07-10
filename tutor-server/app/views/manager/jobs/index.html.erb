@@ -1,0 +1,45 @@
+<% @page_header = "Jobs" %>
+
+<%= form_tag(@job_search_url, method: :get) do -%>
+  <div>
+    Show:
+
+    <%= select_tag :state, options_for_select(
+      ['all', 'queued', 'started', 'failed', 'killed', 'succeeded', 'unknown'],
+    @state) %>
+
+    &nbsp;
+
+    Results per page:
+
+    <%= select_tag :per_page, options_for_select([ 10, 20, 50, 100, 200 ], @per_page) %>
+
+    &nbsp;
+
+    <%= submit_tag 'Search', class: 'btn btn-primary' %>
+  </div>
+<% end -%>
+
+<table id='jobs' class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Status</th>
+      <th>Progress</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr class='<%= job.state.name %>'>
+        <td class='job_id'><%= link_to job.id, instance_exec(job, &@job_url_proc) %></td>
+        <td class='job_status'><%= job.state.name %></td>
+        <td class='job_progress'><%= number_to_percentage(job.progress.to_f * 100, precision: 0) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate(
+  WillPaginate::Collection.create(@page, @per_page, @total) { |pager| pager.replace @jobs }
+) %>

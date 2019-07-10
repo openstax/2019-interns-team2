@@ -1,0 +1,84 @@
+// note: this file should only be included where needed
+//
+// it's not part of the standard styles build, but is included by
+// the reference-book and qa-view screens
+
+@mixin book-page() {
+
+  .book-page {
+    @include tutor-book-content();
+    min-height: 100vh;
+    margin-bottom: 4rem;
+  }
+
+  .content {
+    .center-panel {
+      margin: 0 auto;
+      // always wrap around elements by extending bootstrap's clearfix
+      @include clearfix;
+    }
+
+    @include book-paged-content();
+
+    .book-page {
+      position: relative;
+      &:focus {
+        outline: 0;
+      }
+    }
+
+    .page {
+      @include tutor-book-content-body();
+      background-color: $tutor-white;
+      border: 1px solid $tutor-neutral-light;
+      > section {
+        > h1, h2 {
+          clear: both;
+        }
+        .os-teacher {
+          > ul {
+            padding-left: 40px;
+          }
+        }
+      }
+    }
+  }
+
+  // include selector chain so the specificity matches
+  // the hiding rule in book-content/os-teacher.scss
+  &.is-teacher .content .page .os-teacher {
+    display: block;
+  }
+
+  .book-page-wrapper {
+    transition: margin-left 0.2s linear;
+    .page {
+      position: relative;
+      @include tutor-subtle-load('will-load', 'Loading page...', 0.1s);
+
+      &::after {
+        left: 0;
+        top: -20px;
+      }
+    }
+
+    .page-loading {
+      .refresh-button {
+        position: absolute;
+        left: 50%;
+        z-index: 2;
+      }
+      .page {
+        @include tutor-subtle-load(loading);
+      }
+    }
+    @include printer-safe(block, absolute, 0, 0);
+  }
+
+  // when menu is open and the screen is wide enough, slide everything to the right so it's still visible
+  &.menu-open {
+    @media screen and (min-width: ($book-page-width + $book-menu-width + 50px) ) {
+      .book-page-wrapper{ margin-left: $book-menu-width; }
+    }
+  }
+}

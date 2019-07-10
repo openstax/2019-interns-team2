@@ -1,0 +1,14 @@
+// Include variables and mixins, but NOT STYLES
+// care must be taken with imports listed here so that they don't import actual styles
+// doing so will cause them to be imported multiple times
+// (once in main Tutor build, and then in each screen's build)
+@import '../../resources/styles/definitions';
+
+@import '../../../shared/resources/styles/mixins/index';
+@import '../../../shared/resources/styles/variables/index';
+@import "~bootstrap/scss/reboot";
+
+@import '~pattern-library/core/pattern-library/headers';
+@import '../../resources/styles/mixins';
+@import '../../resources/styles/global/typography';
+@import '../../resources/styles/global/buttons';

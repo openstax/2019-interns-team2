@@ -1,0 +1,45 @@
+#!/bin/bash
+
+set -e
+
+bin/checkinputs "$@"
+
+export OX_PROJECT=$1
+echo Building: $OX_PROJECT
+export NODE_ENV=production
+
+# http://stackoverflow.com/questions/16989598/bash-comparing-version-numbers
+function version { echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'; }
+
+npm_version=`npm --version`
+required_version=3.0
+if [ "$(version "$npm_version")" -lt "$(version "$required_version")" ]; then
+    echo "npm version $required_version is required, you seem to have $npm_version installed"
+    exit 1
+fi
+
+[ -d $OX_PROJECT/dist ] && rm -r $OX_PROJECT/dist
+node --max_old_space_size=4096 $(npm bin)/webpack --config webpack.config.js
+
+SHA=`git rev-parse HEAD`
+
+cd $OX_PROJECT/dist
+echo '// unused' > tutor.min.css
+echo "{" > ./rev-manifest.json
+LAST_FILE=""
+for minified in *.min.*; do
+  filename="${minified##*/}"  # discard directory
+  base="${filename%%.[^.]*}"  # Strip longest match of . plus at least one non-dot char from end
+  ext="${filename:${#base} + 1}"  # Substring from len of base thru end
+  hashed=$base-$SHA.$ext
+  if [ "$LAST_FILE" ]; then
+      echo "," >> ./rev-manifest.json
+  fi
+  echo -n '  "'$minified'": "'$hashed'"' >> ./rev-manifest.json
+  LAST_FILE=$hashed
+  cp $minified $hashed
+done
+echo -e "\n}" >> ./rev-manifest.json
+cd ..
+tar -czf ../archive.tar.gz -C ./dist .
+mv ../archive.tar.gz ./dist/

@@ -1,0 +1,226 @@
+$openstax-book-white: rgb(255, 255, 255);
+$openstax-book-gray: rgb(86, 87, 89);
+$openstax-book-neutral-neutral-darker-green: darken($tutor-secondary, 8%); //rgb(119, 175, 66);
+$openstax-book-green: $tutor-secondary;
+$openstax-book-blue: $tutor-tertiary;
+$openstax-book-yellow: $tutor-quaternary;
+$openstax-book-orange: $tutor-primary;
+$openstax-book-warmer-blue: rgb(0, 36, 106);
+
+$openstax-gold: rgb(254, 189, 62);        // #FDBD3E
+
+$openstax-book-blue-accent: rgb(40, 55, 124);
+$openstax-book-green-accent: lighten($openstax-book-green, 5%);
+$openstax-book-yellow-accent: lighten($openstax-book-yellow, 12%);
+$openstax-book-orange-accent: lighten($openstax-book-orange, 5%);
+$openstax-book-gray-accent: lighten($openstax-book-gray, 5%);
+$openstax-book-neutral-neutral-darker-green-accent: lighten($openstax-book-neutral-neutral-darker-green, 5%);
+
+$openstax-book-default-fg: $openstax-book-neutral-neutral-darker-green;
+$openstax-book-default-bg: $openstax-book-gray;
+$openstax-book-default-accent: $openstax-book-gray-accent;
+$openstax-book-default-fg-inverse: $openstax-gold;
+$openstax-book-drop-cap-color: $tutor-gray;
+$openstax-book-text-on-dark-labels: #fff;
+
+// NOTE:
+//  * The 'biology' and 'physics' codes are deprecated, but are retained for older courses that may have them
+//  * These must be kept in sync with the books in src/flux/course-information.coffee
+$openstax-books: (
+  default: (
+    primary    : $openstax-book-default-fg,
+    secondary  : $openstax-book-default-bg,
+    text       : $openstax-book-text-on-dark-labels,
+    tertiary   : $tutor-tertiary,  // dark blue
+    quaternary : $tutor-quaternary,
+    highlight  : $tutor-highlight,
+    accent     : lighten($tutor-primary, 5%),
+    control    : $tutor-neutral-lightest,
+  ),
+  physics: (
+    primary    : $openstax-book-green,
+    secondary  : $openstax-book-blue,
+    text       : $openstax-book-text-on-dark-labels,
+    tertiary   : rgb(119, 175, 65), // green
+    quaternary : rgb(244, 208, 25), // yellow
+    highlight  : rgb(255, 255, 187), // pale yellow
+    accent     : $openstax-book-blue-accent,
+    control    : $tutor-neutral-lightest,
+  ),
+  hs_physics: (
+    primary    : $openstax-book-green,
+    secondary  : $openstax-book-blue,
+    text       : $openstax-book-text-on-dark-labels,
+    tertiary   : rgb(119, 175, 65), // green
+    quaternary : rgb(244, 208, 25), // yellow
+    highlight  : rgb(255, 255, 187), // pale yellow
+    accent     : $openstax-book-blue-accent,
+    control    : $tutor-neutral-lightest,
+  ),
+  ap_physics: (
+    primary    : $openstax-book-green,
+    secondary  : $openstax-book-blue,
+    text       : $openstax-book-text-on-dark-labels,
+    tertiary   : rgb(119, 175, 65), // green
+    quaternary : rgb(244, 208, 25), // yellow
+    highlight  : rgb(255, 255, 187), // pale yellow
+    accent     : $openstax-book-blue-accent,
+    control    : $tutor-neutral-lightest,
+  ),
+  college_physics: (
+    primary    : $openstax-book-green,
+    secondary  : $openstax-book-blue,
+    text       : $openstax-book-text-on-dark-labels,
+    tertiary   : rgb(119, 175, 65), // green
+    quaternary : rgb(244, 208, 25), // yellow
+    highlight  : rgb(255, 255, 187), // pale yellow
+    accent     : $openstax-book-blue-accent,
+    control    : $tutor-neutral-lightest,
+  ),
+  biology: (
+    primary    : $openstax-book-white,
+    secondary  : $openstax-book-green,
+    text       : $openstax-book-text-on-dark-labels,
+    tertiary   : rgb(35, 48, 102), // dark blue
+    quaternary : rgb(244, 208, 25), // yellow
+    accent     : $openstax-book-neutral-neutral-darker-green-accent,
+    highlight  : rgb(255, 255, 187), // pale yellow
+    control    : $tutor-neutral-lightest,
+  ),
+  biology_2e: (
+    primary    : $openstax-book-white,
+    secondary  : $openstax-book-gray,
+    text       : $openstax-book-text-on-dark-labels,
+    tertiary   : $openstax-book-gray,
+    quaternary : $openstax-book-green,
+    accent     : $openstax-book-neutral-neutral-darker-green-accent,
+    highlight  : rgb(255, 255, 187), // pale yellow
+    control    : $tutor-neutral-lightest,
+  ),
+  ap_biology: (
+    primary    : $openstax-book-white,
+    secondary  : $openstax-book-green,
+    text       : $openstax-book-text-on-dark-labels,
+    tertiary   : rgb(35, 48, 102), // dark blue
+    quaternary : rgb(244, 208, 25), // yellow
+    accent     : $openstax-book-neutral-neutral-darker-green-accent,
+    highlight  : rgb(255, 255, 187), // pale yellow
+    control    : $tutor-neutral-lightest,
+  ),
+  concepts_biology: (
+    primary    : $openstax-book-white,
+    secondary  : $openstax-book-green,
+    text       : $openstax-book-text-on-dark-labels,
+    tertiary   : rgb(35, 48, 102), // dark blue
+    quaternary : rgb(244, 208, 25), // yellow
+    accent     : $openstax-book-neutral-neutral-darker-green-accent,
+    highlight  : rgb(255, 255, 187), // pale yellow
+    control    : $tutor-neutral-lightest,
+  ),
+  college_biology: (
+    primary    : $openstax-book-white,
+    secondary  : $openstax-book-green,
+    text       : $openstax-book-text-on-dark-labels,
+    tertiary   : rgb(35, 48, 102), // dark blue
+    quaternary : rgb(244, 208, 25), // yellow
+    accent     : $openstax-book-neutral-neutral-darker-green-accent,
+    highlight  : rgb(255, 255, 187), // pale yellow
+    control    : $tutor-neutral-lightest,
+  ),
+  principles_economics: (
+    primary    : $openstax-book-gray,
+    secondary  : $openstax-book-white,
+    text       : $openstax-book-text-on-dark-labels,
+    tertiary   : $tutor-tertiary,  // dark blue
+    quaternary : $tutor-quaternary,
+    highlight  : $tutor-highlight,
+    accent     : lighten($tutor-primary, 5%),
+    control    : $tutor-neutral-lightest,
+  ),
+  macro_economics: (
+    primary    : $openstax-book-neutral-neutral-darker-green,
+    secondary  : $openstax-book-gray,
+    text       : $openstax-book-text-on-dark-labels,
+    tertiary   : $tutor-tertiary,  // dark blue
+    quaternary : $tutor-quaternary,
+    highlight  : $tutor-highlight,
+    accent     : lighten($tutor-primary, 5%),
+    control    : $tutor-neutral-lightest,
+  ),
+  micro_economics: (
+    primary    : $openstax-book-yellow,
+    secondary  : $openstax-book-gray,
+    text       : $openstax-book-text-on-dark-labels,
+    tertiary   : $tutor-tertiary,  // dark blue
+    quaternary : $tutor-quaternary,
+    highlight  : $tutor-highlight,
+    accent     : lighten($tutor-primary, 5%),
+    control    : $tutor-neutral-lightest,
+  ),
+  intro_sociology: (
+    primary    : $openstax-book-warmer-blue,
+    secondary  : $openstax-book-yellow,
+    text       : $openstax-book-text-on-dark-labels,
+    tertiary   : $tutor-tertiary,  // dark blue
+    quaternary : $tutor-quaternary,
+    highlight  : $tutor-highlight,
+    accent     : lighten($tutor-primary, 5%),
+    control    : $openstax-book-warmer-blue,
+  ),
+  anatomy_physiology: (
+    primary    : $openstax-book-orange,
+    secondary  : $openstax-book-gray,
+    text       : $openstax-book-text-on-dark-labels,
+    tertiary   : $tutor-tertiary,  // dark blue
+    quaternary : $tutor-quaternary,
+    highlight  : $tutor-highlight,
+    accent     : lighten($tutor-primary, 5%),
+    control    : $tutor-neutral-lightest,
+  ),
+  ap_us_history: (
+    primary    : $openstax-book-orange,
+    secondary  : $openstax-book-blue,
+    text       : $openstax-book-text-on-dark-labels,
+    tertiary   : $tutor-tertiary,  // dark blue
+    quaternary : $tutor-quaternary,
+    highlight  : $tutor-highlight,
+    accent     : $openstax-book-blue-accent,
+    control    : $tutor-neutral-lightest,
+  ),
+);
+
+@function openstax-book-color($book, $type) {
+  @if map-has-key($openstax-books, $book) {
+    $book-map: map-get($openstax-books, $book);
+    @if map-has-key($book-map, $type) {
+      @return map-get($book-map, $type);
+    }
+    @warn 'book `#{$book}` was found but does not have a color for #{$type}';
+    @return null;
+  }
+  @warn 'Unknown book thumbnail: `#{$book}`';
+  @return null;
+}
+
+
+// books that we have thumbnails for.  Some appearance codes share thumbnails
+$openstax-book-thumbnails: (
+  intro_sociology : 'sociology-book-thumbnail.svg',
+  hs_physics      : 'hs_physics-book-thumbnail.png',
+  ap_physics      : 'ap_physics-book-thumbnail.svg',
+  physics         : 'college_physics-book-thumbnail.svg',
+  college_physics : 'college_physics-book-thumbnail.svg',
+  biology         : 'biology-book-thumbnail.svg',
+  ap_biology      : 'biology-book-thumbnail.svg',
+  college_biology : 'biology-book-thumbnail.svg',
+  ap_us_history   : 'ap_us_history-book-thumbnail.svg',
+  biology_2e      : 'biology_2e-book-thumbnail.svg',
+);
+
+@mixin book-content-thumbnail($book) {
+  @if map-has-key($openstax-book-thumbnails, $book) {
+    @include tutor-background-image('courses/#{map-get($openstax-book-thumbnails, $book)}');
+  } @else {
+    @warn 'Unknown book thumbnail: `#{$book}`';
+  }
+}

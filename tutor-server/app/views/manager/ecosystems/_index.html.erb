@@ -1,0 +1,41 @@
+<% ecosystem_path ||= nil %>
+
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active">
+    <a href="#main" aria-controls="main" role="tab" data-toggle="tab">
+      List of Books
+    </a>
+  </li>
+  <li role="presentation">
+    <a href="#incomplete" aria-controls="main" role="tab" data-toggle="tab">
+      Incomplete Imports
+    </a>
+  </li>
+  <li role="presentation">
+    <a href="#failed" aria-controls="main" role="tab" data-toggle="tab">
+      Failed Imports
+    </a>
+  </li>
+</ul>
+
+
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="main">
+    <%= render partial: 'manager/ecosystems/listing', locals: { ecosystems: ecosystems,
+                                                                ecosystem_path: ecosystem_path,
+                                                                manifest_path: manifest_path } %>
+
+    <% if defined?(import_path) %>
+      <%= link_to 'Import a new Ecosystem', import_path, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="incomplete">
+    <%= render partial: 'manager/ecosystems/jobs',
+               locals: { jobs: incomplete_jobs, job_path_proc: job_path_proc } %>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="failed">
+    <%= render partial: 'manager/ecosystems/jobs',
+               locals: { jobs: failed_jobs, status: 'Failed', job_path_proc: job_path_proc } %>
+  </div>
+</div>

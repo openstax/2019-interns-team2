@@ -1,0 +1,26 @@
+{
+  "verbose": true,
+  "notify": false,
+  "clearMocks": true,
+  "collectCoverageFrom": ["**/*.{jsx,js,coffee,cjsx}", "!**/node_modules/**"],
+  "coverageDirectory": "../coverage/",
+  "coverageReporters": ["json", "lcov", "text-summary"],
+  "testRegex": "specs\/.*\\.spec\\.(coffee|js|jsx|cjsx|json)$",
+  "transform": {
+    "^.+\\.jsx?$": "babel7-jest"
+  },
+  "moduleFileExtensions": [ "js", "jsx", "json" ],
+  "setupTestFrameworkScriptFile": "<rootDir>../configs/test/jest.setup.js",
+  "modulePaths": [
+    "<rootDir>/src"
+  ],
+  "moduleNameMapper": {
+    "^shared/specs/(.*)$": "<rootDir>/../shared/specs/$1",
+    "^shared/(.*)$": "<rootDir>/../shared/src/$1",
+    "^shared$": "<rootDir>/../shared/src/index.js",
+    "\\.(css|less|scss)$": "<rootDir>/../configs/test/jest.style-mock.js"
+  },
+  "testPathIgnorePatterns": [
+    "node_modules"
+  ]
+}

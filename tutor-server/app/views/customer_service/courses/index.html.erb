@@ -1,0 +1,23 @@
+<% @page_header = "Courses" %>
+
+<%= render partial: 'manager/courses/tabs',
+           locals: { incomplete_jobs: @incomplete_jobs, failed_jobs: @failed_jobs } %>
+<br>
+<%= render partial: 'manager/courses/search', locals: {
+             query: @query, order_by: @order_by, total_count: @course_infos.try(:count)
+           } %>
+
+<%= render partial: 'manager/courses/index',
+           locals: { course_infos: @course_infos,
+                     extra_headers: 'Actions',
+                     page: params.fetch(:page, 1),
+                     per_page: params.fetch(:per_page, 25),
+                     incomplete_jobs: @incomplete_jobs,
+                     failed_jobs: @failed_jobs,
+                     job_path_proc: ->(job) { customer_service_job_path(job.id) },
+                     extra_fields_procs: [ lambda do |course_info| %>
+  <td>
+    <%= link_to 'List Students', customer_service_course_students_path(course_info.id) %>
+    <%= link_to 'Show', customer_service_course_path(course_info.id) %>
+  </td>
+<% end ] } %>

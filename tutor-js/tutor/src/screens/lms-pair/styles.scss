@@ -1,0 +1,25 @@
+@import '../new-course/styles';
+@import '../../../resources/styles/components/choices-listing';
+@import '~bootstrap/scss/forms';
+@import '~bootstrap/scss/input-group';
+@import '~bootstrap/scss/list-group';
+
+.new-course-wizard {
+  background-color: white;
+  &::before {
+    top: 0;
+  }
+  .card-header {
+    line-height: 1.5em;
+    font-weight: 800;
+  }
+
+  .new-course-wizard.offering .card-header {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .card-footer.controls {
+    text-align: right;
+  }
+}

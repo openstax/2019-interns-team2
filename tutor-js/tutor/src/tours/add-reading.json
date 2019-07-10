@@ -1,0 +1,85 @@
+[
+{
+  "id": "reading-assignment-editor-super",
+  "autoplay": true,
+  "standalone": true,
+  "audience_tags": [
+    "teacher-preview"
+  ],
+  "steps": [
+    {
+      "customComponent": "HowToBuildYourReading"
+    }, {
+      "body": "More about reading assignments in our \"Page Tips\"",
+      "anchor_id": "menu-option-page-tips",
+      "action": {
+        "id": "open-support-menu"
+      },
+      "position": "left"
+    }
+  ]
+}, {
+  "id": "reading-assignment-editor",
+  "group_id": "reading",
+  "audience_tags": [
+    "teacher",
+    "teacher-preview"
+  ],
+  "steps": [
+    {
+      "customComponent": "HowToBuildYourReading"
+    }, {
+      "title": "OpenStax Tutor reading assignments",
+      "body": "Reading assignments include book content, formative questions, and one to three spaced practice questions per section of the book."
+    }, {
+      "body": ":best-practices: Make reading assignments due before you cover the topic in class to help your students prepare."
+    }, {
+      "title": "Build a reading assignment",
+      "body":  "Ready to make a reading assignment? Fill in this form and click \"Add readings.\""
+    }
+  ]
+}, {
+  "id": "add-reading-choose-sections",
+  "group_id": "reading",
+  "audience_tags": [
+    "teacher",
+    "teacher-preview"
+  ],
+  "steps": [
+    {
+      "title": "First, select a chapter",
+      "body": "Select a chapter you want to assign, then scroll down and click \"Add readings.\" Uncheck any sections you don’t want to cover."
+    }
+  ]
+}, {
+  "id": "add-reading-review-sections",
+  "group_id": "reading",
+  "audience_tags": [
+    "teacher",
+    "teacher-preview"
+  ],
+  "steps": [
+    {
+      "title": "What students get",
+      "body": "Your students will get formative and spaced practice questions from the sections you selected above. Remember: you can see all questions that OpenStax Tutor might use in the Question Library.",
+      "position": "top"
+    }, {
+      "title": "Publish",
+      "body": "To schedule this reading assignment, click Publish.",
+      "anchor_id": "builder-save-button"
+    }
+  ]
+}, {
+  "id": "reading-published",
+  "group_id": "reading",
+  "audience_tags": [
+    "teacher-reading-published"
+  ],
+  "steps": [
+    {
+      "title": "Congratulations!",
+      "body": "You just published your first reading assignment. Now, find the reading on your calendar and:\n\n* Get a direct link for your learning management system\n* Edit or delete the assignment\n* View student completion and performance metrics, once students complete it.",
+      "customComponent": "CenteredNoHoleWheel"
+    }
+  ]
+}]

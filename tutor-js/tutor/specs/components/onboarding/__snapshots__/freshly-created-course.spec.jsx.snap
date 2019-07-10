@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Freshly Created Course prompt renders and matches snapshot 1`] = `
+<C
+  path="/"
+>
+  <FreshlyCreatedCourse
+    ux={
+      FullCourseOnboarding {
+        "course": Object {},
+        "dismissNag": [MockFunction],
+        "response": false,
+        "tourContext": Object {},
+      }
+    }
+  />
+</C>
+`;

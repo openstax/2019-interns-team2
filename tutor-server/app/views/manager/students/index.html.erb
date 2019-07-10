@@ -1,0 +1,22 @@
+<% @page_header = "Students for course #{@course.name}" %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Name</th>
+      <th>Student Identifier</th>
+      <th>Dropped?</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @students.each do |student| %>
+    <tr>
+      <td><%= student.username %></td>
+      <td><%= student.name %></td>
+      <td><%= student.student_identifier %></td>
+      <td><%= tf_to_yn student.dropped? %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

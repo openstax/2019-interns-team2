@@ -1,0 +1,215 @@
+// This file is part of the book-content mixin and should not be included directly
+// Hide titles, abstracts and CNX Processing instructions
+
+// References should not get drop-cap styling
+@mixin tutor-book-content-base-styles() {
+
+  // Default font for text content
+  p,
+  ul,
+  ol {
+    @include tutor-serif-font(1.75rem, 190%);
+    margin: 0 0 2.4rem 0;
+  }
+  // but not inside tables
+  table {
+    p, ul,ol {
+      @include tutor-sans-font(1.75rem, 190%);
+    }
+  }
+
+  section {
+    clear: both;
+
+    &:first-of-type:not(.splash),
+    &.visual-exercise,
+    &.multiple-choice,
+    &.critical-thinking,
+    &.summary {
+      margin-top: 2rem;
+    }
+  }
+
+  blockquote {
+    @include tutor-serif-font(1.75rem, 190%);
+    font-style: italic;
+    background-color: $tutor-neutral-lighter;
+  }
+
+  [data-type=term]{
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  @include tutor-tables($tutor-neutral-light, $tutor-neutral-light);
+  table + .os-caption-container{
+    margin-bottom: 3rem;
+    margin-top: -1rem; // move closer to bottom of table
+  }
+
+  div[data-type="document-title"],
+  cnx-pi{
+    display: none;
+  }
+
+  ul::not([role="menu"]) {
+    list-style-type: none;
+    > li {
+      &::before {
+        list-style-type: none;
+        content: "";
+        width: .4em;
+        height: .4em;
+        float: left;
+        margin: 0.75em -0.8em 0;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  section:not(.references) h1 + p:first-of-type,
+  [data-type="document-title"] ~ p:first-of-type {
+    margin-top: 2rem;
+    @include tutor-reading-first-letter();
+  }
+
+  // prevent larger images from pushing out past their container.
+  // Most images are inside a <figure> and will be handled by the rules below
+  img { max-width: 100%, }
+
+  @include tutor-figure();
+
+  // images inside a figure that occurs right after a title are full-width
+  .title + figure {
+    width: 100%;
+    img { width: 100%; }
+  }
+
+  [data-type="footnote-refs"] {
+    ol {
+      padding-left: 0;
+      list-style: none;
+      li {
+        list-style: none;
+        a {
+          padding-right: 10px;
+        }
+        p {
+          display:inline;
+        }
+      }
+    }
+  }
+
+  [data-type="example"],
+  .solution,
+  .commentary {
+    clear: both;
+
+    .os-title,
+    [data-type=title] {
+      @include tutor-sans-font(1.8rem, 1.75em);
+      font-weight: bold;
+    }
+  }
+
+  [data-type="document-title"]:not(h3) {
+    display: none;
+  }
+
+  .os-glossary-container {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .os-chapter-outline {
+    .os-title { display: none; }
+    .os-chapter-objective {
+      > a.os-chapter-objective {
+        display: none;
+      }
+      & + .os-chapter-objective {
+        .learning-objective {
+          [data-type="abstract"] {
+            min-height: inherit;
+            padding: 0 0 0 20px;
+          }
+        }
+      }
+      &:last-of-type .learning-objective [data-type="abstract"] {
+        padding-bottom: 20px;
+      }
+    }
+  }
+
+  .os-table {
+    margin-top: 2rem;
+  }
+
+  table {
+    caption {
+      caption-side: top;
+      font-style: italic;
+      font-weight: 400;
+      font-size: inherit;
+      & + thead {
+        tr:first-child {
+          font-style: normal;
+          th {
+            background: $tutor-white;
+            font-weight: 800;
+          }
+        }
+      }
+    }
+    caption + tbody,
+    thead + tbody,
+    tbody:only-child,
+    colgroup + tbody {
+      tr {
+        td:first-child{
+          font-weight: 400;
+        }
+      }
+    }
+    td,
+    th {
+      .MathJax_Display {
+        display: inline!important;
+        text-align: left!important;
+      }
+    }
+    thead {
+      tr:first-child {
+        font-style: italic;
+        th {
+          font-weight: 400;
+          border-bottom: none;
+          background: $tutor-white;
+        }
+      }
+      tr:nth-child(2) {
+        th {
+          background: $tutor-white;
+          font-weight: 800;
+        }
+      }
+    }
+    tbody{
+      border-bottom: none;
+      tr{
+        td:first-child{
+          font-weight: 800;
+        }
+      }
+      ul{
+        font-family: inherit;
+        font-size: inherit;
+        padding-left: 10px;
+        li::before{
+          background: $tutor-neutral-darker;
+        }
+      }
+    }
+  }
+}

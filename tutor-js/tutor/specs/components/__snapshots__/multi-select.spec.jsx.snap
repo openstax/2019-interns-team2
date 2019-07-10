@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MultiSelect component renders selections 1`] = `
+<div
+  className="multi-select dropdown"
+  onKeyDown={[Function]}
+  variant="default"
+>
+  <button
+    aria-expanded={false}
+    aria-haspopup={true}
+    aria-label="Food Selections"
+    className="dropdown-toggle btn btn-default"
+    disabled={false}
+    id="multi-select"
+    onClick={[Function]}
+    onToggle={[Function]}
+    open={false}
+    tabIndex={0}
+    type="button"
+  >
+    Food Selections
+  </button>
+</div>
+`;

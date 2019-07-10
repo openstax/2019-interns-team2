@@ -1,0 +1,84 @@
+// http://caniuse.com/#search=counter
+.task-homework,
+.task-practice,
+.task-chapter_practice,
+.task-concept_coach,
+.task-page_practice,
+.task-practice_worst_topics {
+
+  [data-step-index] {
+
+    &.breadcrumb-mpq,
+    &.breadcrumb-placeholder,
+    &.breadcrumb-exercise {
+      border: 1px solid #8181813b;
+      &:before {
+        counter-increment: step;
+        content: attr(data-step-index);
+        @include crumb-text();
+      }
+
+      i:not(.icon-incorrect):not(.icon-correct) {
+        display: none;
+      }
+    }
+
+    &.breadcrumb-personalized-intro {
+      background: $openstax-primary;
+    }
+  }
+}
+
+// label readings with chapter info if it exists
+.task-reading,
+.task-homework
+{
+  .openstax-breadcrumbs-step[data-chapter] {
+    color: $openstax-white;
+
+    &.active,
+    &.completed {
+      color: $openstax-white;
+    }
+
+    &::before {
+      content: attr(data-chapter);
+      @include crumb-text();
+    }
+    i:not(.icon-incorrect):not(.icon-correct) {
+      display: none;
+    }
+  }
+}
+
+.task-reading {
+  .openstax-breadcrumbs-step[data-chapter] {
+    background: $reading-color;
+  }
+}
+
+.task-homework {
+  .openstax-breadcrumbs-step[data-chapter] {
+    background: $homework-color;
+  }
+}
+
+
+.task-breadcrumbs {
+  margin-left: -2px;
+  margin-right: -2px;
+
+  &.shrink {
+    .openstax-breadcrumbs-step {
+      &:not(:hover):not(.active) {
+        @include scale(.75, .75);
+        margin-left: -16px;
+      }
+      &:hover, &.active {
+        margin-right: 10px;
+        margin-left: -6px;
+        @include openstax-icon-active(1.2, 0.12);
+      }
+    }
+  }
+}

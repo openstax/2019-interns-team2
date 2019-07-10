@@ -1,0 +1,19 @@
+.ox-icon {
+
+  &[data-variant=warning] {
+    path {
+      fill: $tutor-warning;
+    }
+  }
+
+  &[data-variant=danger] {
+    path {
+      fill: $tutor-danger;
+    }
+  }
+
+  &:focus {
+    @include tutor-shadow(outline);
+  }
+
+}

@@ -1,0 +1,85 @@
+<table class="table table-striped" id="students">
+  <thead>
+    <tr style="background-color: white">
+      <th>Name</th>
+      <% if @course.does_cost %>
+        <th>Paid?</th>
+        <th>Comped?</th>
+        <th>Payment Due</th>
+      <% end %>
+      <th>Student Identifier</th>
+      <th width="100px; text-align: center;">User</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @students.each do |student| %>
+    <% @time_zone ||= student.course.time_zone.to_tz %>
+    <% user_id = student.role.profile.id %>
+
+    <tr>
+      <td><%= student.name %></td>
+      <% if @course.does_cost %>
+        <td>
+          <% if student.is_paid %>
+            <% if student.is_refund_pending %>
+              Yes (Refund pending)
+            <% else %>
+              Yes
+              (<%= link_to "Refund",
+                          refund_admin_student_path(student),
+                          method: :put,
+                          data: {
+                            confirm: "Are you sure you want to refund for #{student.name}?"
+                          } %>)
+            <% end %>
+          <% else %>
+            No
+          <% end %>
+        </td>
+        <td>
+          <a href="#">
+            <%= best_in_place student,
+                :is_comped,
+                as: :checkbox,
+                url: admin_student_path(student) %>
+          </a>
+        </td>
+        <td>
+          <a href="#">
+            <%= best_in_place student,
+                :payment_due_at,
+                as: :date,
+                url: admin_student_path(student),
+                display_with: ->(val) do
+                  val.in_time_zone(@time_zone).strftime("%b %-d, %Y %l:%M:%S %p %Z")
+                end %>
+          </a>
+        </td>
+      <% end %>
+      <td><%= student.student_identifier %></td>
+      <td>
+        <%= link_to '', edit_admin_user_path(user_id), class: "btn btn-xs glyphicon glyphicon-pencil" %>
+        <%= link_to '', info_admin_users_path(id: user_id), class: "btn btn-xs glyphicon glyphicon-info-sign" %>
+        <% if student.deleted? %>
+        <%= link_to '', restore_admin_student_path(student), title: 'Restore User to course', class: "btn btn-xs glyphicon glyphicon-plus-sign", method: :put %>
+        <% else %>
+        <%= link_to '', admin_student_path(student), title: 'Drop user from course', class: "btn btn-xs glyphicon glyphicon-trash", method: :delete, data: {
+            confirm: "Are you sure you want to drop #{student.name} from this course?"
+            } %>
+        <% end %>
+
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('table#students').stickyTableHeaders();
+      jQuery(".best_in_place").best_in_place();
+    });
+  </script>
+<% end %>

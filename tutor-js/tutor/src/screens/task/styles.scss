@@ -1,0 +1,22 @@
+@import '../screen-styles';
+@import '../../../resources/styles/book-content/index';
+@import '../../../resources/styles/book-content/page';
+@import './styles/milestones';
+
+.task-screen {
+  @include book-page();
+  .book-page {
+    padding: 0 $tutor-book-padding-horizontal;
+    .os-chapter-outline {
+      display: none;
+    }
+  }
+
+  .exercise-step {
+    @include book-content-interactives();
+  }
+  .video-step,
+  .interactive-step {
+    @include tutor-book-notes();
+  }
+}

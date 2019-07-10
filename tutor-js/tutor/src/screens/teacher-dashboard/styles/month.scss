@@ -1,0 +1,135 @@
+// TODO make this a mixin for flexible calendaringggg
+
+$calendar-cell-width: calc(100%/7);
+$calendar-cell-height: 10rem;
+$dayz-outside-background-color: $tutor-neutral-lightest;
+$dayz-event-border-color: transparent;
+$dayz-event-default-color:  transparent;
+$dayz-highlight-color:     transparent;
+$dayz-event-text-default-color: $tutor-neutral-darker;
+$dayz-event-border-radius: 0;
+
+@import '~dayz/dayz.scss';
+
+@mixin bootstrap-column-padding-override() {
+  // Overriding bootstrap's tricks for nice column floating.
+  // To help with calendar plans width rendering.  May be useful elsewhere.  Be careful when using --
+  // removes padding of columns.
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  [class^="col-"] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@mixin calendar-cell($cell-width) {
+  display: inline-block;
+  width: $cell-width;
+  height: inherit;
+  padding: 5px;
+  @include no-select();
+}
+
+@keyframes preloadAnimation {
+    from {
+        background-position: -280px 0
+    }
+    to {
+        background-position: 300px 0
+    }
+}
+
+.calendar-container{
+  @include bootstrap-column-padding-override();
+
+  padding-bottom: $tutor-card-body-padding-vertical;
+
+  .calendar-body {
+    background-color: $tutor-white;
+    @include tutor-shadow(pop);
+  }
+
+  .month-wrapper {
+    margin: 0 10px 10px 10px;
+  }
+
+  .month-body {
+    @include tutor-subtle-load('will-load', 'Loading ' attr(data-duration-name) '...');
+  }
+
+  &.calendar-loading {
+    .month-body {
+      @include tutor-subtle-load('loading');
+    }
+    .plan {
+      opacity: 0.1;
+    }
+    &.with-sidebar-open {
+      .month-body::after {
+        width: calc(100% - #{$calendar-sidebar-width});
+      }
+    }
+  }
+
+  .dayz {
+    .event .evbody {
+      padding-left: 0;
+    }
+
+    .day {
+      position: relative;
+
+      &.today,
+      &.upcoming {
+        cursor: pointer;
+        &.hover,
+        &:hover {
+          background-color: fade_out($tutor-tertiary-neutral-light, 0.9);
+          &::after{
+            content: '+';
+            font-size: 2rem;
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            color: $tutor-tertiary-neutral-light;
+          }
+        }
+      }
+
+      &.past,
+      &.before-term,
+      &.after-term {
+        color: $tutor-neutral;
+        background-color: $tutor-neutral-lightest;
+        &.hover,
+        &:hover {
+          background: fade_out($tutor-danger, 0.9);
+        }
+      }
+
+      &.today {
+        .label {
+          color: $tutor-primary;
+          font-weight: bold;
+        }
+      }
+
+      &.pending-clone::before {
+        content: 'Copying Plan…';
+        background: linear-gradient(to right, $tutor-neutral-light 8%, $tutor-neutral-lighter 18%, $tutor-neutral-light 33%);
+        background-size: 200% 50px;
+        animation: preloadAnimation 2s infinite;
+        position: absolute;
+        top: 40%;
+        width: 100%;
+        padding: 5px;
+      }
+
+    }
+  }
+
+
+}

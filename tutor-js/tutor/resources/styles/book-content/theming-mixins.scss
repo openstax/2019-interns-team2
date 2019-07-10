@@ -1,0 +1,118 @@
+@mixin tutor-book-theme-learning-objectives($background, $theme-accent, $text-color) {
+
+  [data-type="abstract"],
+  .learning-objectives.splash {
+    background: $background;
+    color: $text-color;
+    padding-top: 0;
+    border-bottom: 0;
+    margin-bottom: 0;
+
+    // add top margin to anything that's not itself a splash element
+    & + *:not(.splash) {
+      margin-top: 2rem;
+    }
+//    & +
+  }
+
+}
+
+@mixin tutor-book-theme-related-content($background, $text-color) {
+  .related-content[data-has-learning-objectives] {
+    background: $background;
+    color: $text-color;
+  }
+}
+
+
+@mixin tutor-book-theme-quote($border-color) {
+  blockquote {
+    border-left-color: $border-color;
+  }
+}
+
+@mixin tutor-book-theme-note-borders($border-color) {
+  .grasp-check {
+    border-top: solid 8px $border-color;
+  }
+}
+
+@mixin tutor-book-theme-typography($heading-border) {
+  h1 {
+    border-top-color: $heading-border;
+  }
+}
+
+@mixin tutor-book-theme-splash-image($overlay, $text-color) {
+  .splash {
+    .tutor-ui-overlay {
+      background-color: $overlay;
+      color: $text-color;
+    }
+  }
+}
+
+@mixin tutor-book-theme-bullet-lists($bullet-color) {
+  ul::not([role="menu"]) > li {
+    &::before {
+      background: $bullet-color;
+    }
+  }
+}
+
+@mixin tutor-book-theme-tables($table-accent) {
+  $table-accent-style: solid 4px $table-accent;
+  table {
+    caption + thead {
+      tr:first-child {
+        border-bottom: $table-accent-style;
+      }
+    }
+    caption + tbody, thead + tbody, tbody:only-child, colgroup + tbody {
+      border-top: $table-accent-style;
+    }
+    thead {
+      tr:nth-child(2) {
+        border-bottom: $table-accent-style;
+      }
+    }
+    tbody{
+      ul{
+        li::before{
+          background: $tutor-neutral-darker;
+        }
+      }
+    }
+  }
+}
+
+@mixin tutor-book-content-theme($book-code) {
+  $primary: openstax-book-color($book-code, primary);
+  $secondary: openstax-book-color($book-code, secondary);
+  $text: openstax-book-color($book-code, text);
+  $accent: openstax-book-color($book-code, accent);
+
+  @include tutor-book-theme-typography($secondary);
+  @include tutor-book-theme-bullet-lists($bullet-color: $secondary);
+  @include tutor-book-theme-note-borders($border-color: $secondary);
+  @include tutor-book-theme-tables($table-accent: $accent);
+  @include tutor-book-theme-quote($border-color: $secondary);
+  @include tutor-book-theme-learning-objectives(
+    $background: $secondary,
+    $text-color: $text,
+    $theme-accent: $accent
+  );
+  @include tutor-book-theme-related-content(
+    $background: $secondary,
+    $text-color: $text
+  );
+  @include tutor-book-theme-splash-image(
+    $overlay: $secondary,
+    $text-color: $text
+  );
+  @include tutor-book-theme-notes(
+    $background: $secondary,
+    $text-color: $primary
+  );
+
+}
