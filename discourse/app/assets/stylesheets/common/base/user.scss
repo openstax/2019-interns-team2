@@ -61,7 +61,7 @@
   .user-content,
   .spinner {
     -ms-grid-row: 2;
-    -ms-grid-column: 1;
+    -ms-grid-column: 2;
     -ms-grid-column-span: 2;
   }
   .user-secondary-navigation + .user-content {
@@ -552,7 +552,7 @@
       }
     }
     .select-kit.multi-select {
-      @include breakpoint(mobile) {
+      @include breakpoint(mobile-extra-large) {
         width: 100%;
       }
     }

@@ -45,7 +45,7 @@ bootsnap-load-path-cache
 bootsnap-compile-cache/
 
 # Ignore plugins except for the bundled ones.
-# /plugins/*
+/plugins/*
 !/plugins/lazyYT/
 !/plugins/poll/
 !/plugins/discourse-details/
@@ -127,3 +127,6 @@ vendor/bundle/*
 
 # Vagrant
 .vagrant
+
+# ignore auto-generated plugin js assets
+/app/assets/javascripts/plugins/*
