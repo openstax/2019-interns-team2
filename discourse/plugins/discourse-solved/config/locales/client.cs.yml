@@ -1,0 +1,26 @@
+# encoding: utf-8
+#
+# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+#
+# To work with us on translations, join this project:
+# https://www.transifex.com/projects/p/discourse-org/
+
+cs:
+  js:
+    notifications:
+      alt:
+        solved:
+          accepted_notification: "přijato"
+    solved:
+      title: "Vyřešeno"
+      allow_accepted_answers: "Povolit vlastníkovi tématu a správcům označit odpověď jako řešení"
+      accept_answer: "Tato odpověď je řešením problému"
+      has_no_accepted_answer: "Toto téma nemá žádné řešení"
+      unaccept_answer: "Tato odpověď již neřeší tento problém"
+      accepted_answer: "Řešení"
+      solution: "Řešení"
+      topic_status_filter:
+        all: "vše"
+    topic_statuses:
+      solved:
+        help: "Toto téma má řešení"

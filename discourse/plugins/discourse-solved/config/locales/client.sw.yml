@@ -1,0 +1,26 @@
+# encoding: utf-8
+#
+# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+#
+# To work with us on translations, join this project:
+# https://www.transifex.com/projects/p/discourse-org/
+
+sw:
+  js:
+    notifications:
+      alt:
+        solved:
+          accepted_notification: "imeruhusiwa"
+    solved:
+      title: "Imetatuliwa"
+      allow_accepted_answers: "Ruhusu Muanzilishi wa Mada na Wasaidizi kuchagua jibu kama Suluhisho"
+      accept_answer: "Chagua kama jibu limetatua tatizo"
+      has_no_accepted_answer: "Hii mada haina suluhisho"
+      unaccept_answer: "Ondoa chaguo kama jibu halijatatua tatizo"
+      accepted_answer: "Jibu"
+      solution: "Suluhisho"
+      topic_status_filter:
+        all: "Zote"
+    topic_statuses:
+      solved:
+        help: "Hii mada ina suluhisho"

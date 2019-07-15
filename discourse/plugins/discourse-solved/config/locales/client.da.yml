@@ -1,0 +1,18 @@
+# encoding: utf-8
+#
+# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+#
+# To work with us on translations, join this project:
+# https://www.transifex.com/projects/p/discourse-org/
+
+da:
+  js:
+    solved:
+      allow_accepted_answers: "Tillad ejer af emne og stab at markere svar som en løsning"
+      accepted_answer: "Løsning"
+      solution: "Løsning"
+      topic_status_filter:
+        all: "alle"
+    topic_statuses:
+      solved:
+        help: "Dette svar har en løsning"

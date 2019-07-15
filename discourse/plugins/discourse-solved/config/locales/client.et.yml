@@ -1,0 +1,27 @@
+# encoding: utf-8
+#
+# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+#
+# To work with us on translations, join this project:
+# https://www.transifex.com/projects/p/discourse-org/
+
+et:
+  js:
+    notifications:
+      alt:
+        solved:
+          accepted_notification: "aktsepteeritud"
+    solved:
+      title: "Lahendatud"
+      has_no_accepted_answer: "Sellel teemal pole lahendust"
+      accepted_answer: "Lahendus"
+      solution: "Lahendus"
+      solution_summary:
+        one: "lahendus"
+        other: "lahendused"
+      accepted_notification: "<p><span>{{username}}</span> {{description}}</p>"
+      topic_status_filter:
+        all: "kõik"
+    topic_statuses:
+      solved:
+        help: "ellel teemal on lahendus"

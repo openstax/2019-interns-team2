@@ -1,0 +1,25 @@
+# encoding: utf-8
+#
+# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+#
+# To work with us on translations, join this project:
+# https://www.transifex.com/projects/p/discourse-org/
+
+fa_IR:
+  js:
+    notifications:
+      alt:
+        solved:
+          accepted_notification: "تأیدد شده"
+    solved:
+      title: "حل شده"
+      allow_accepted_answers: "به صاحب عنوان و مدیران اجازه انتخاب یک پاسخ را به عنوان راه حل بده."
+      has_no_accepted_answer: "این موضوع هیچ راه حلی ندارد"
+      accepted_answer: "راه حل مورد قبول"
+      solution: "راه حل"
+      accepted_html: "{{icon}}<span class='by'>توسط<a href data-user-card='{{username_lower}}'>{{username}}</a></span> در <a href='{{post_path}}' class='back'>پست {{post_number}}</a>حل شد. "
+      topic_status_filter:
+        all: "همه"
+    topic_statuses:
+      solved:
+        help: "این موضوع راه حلی دارد"

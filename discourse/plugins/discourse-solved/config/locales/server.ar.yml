@@ -1,0 +1,21 @@
+# encoding: utf-8
+#
+# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+#
+# To work with us on translations, join this project:
+# https://www.transifex.com/projects/p/discourse-org/
+
+ar:
+  site_settings:
+    solved_enabled: "قم بتفعيل إضافة الحلول. اسمح للمستخدمين باختيار حلول لمواضيعهم."
+    allow_solved_on_all_topics: "اسمح للمستخدمين باختيار الحلول في كل المواضيع (إذ أنك تتحكم في هذا افتراضيا بتحرير الفئات)"
+    accept_all_solutions_trust_level: "أدنى حد مطلوب للثقة وذلك لقبول الحلول في أي موضوع (حتى لو لم يكن OP)"
+  reports:
+    accepted_solutions:
+      title: "الحلول المقبولة"
+      xaxis: "اليوم"
+      yaxis: "المجموع"
+  solved:
+    no_solutions:
+      self: "لم تقم بقبول حلول حتى الآن."
+      others: "لا حلول مقبولة."

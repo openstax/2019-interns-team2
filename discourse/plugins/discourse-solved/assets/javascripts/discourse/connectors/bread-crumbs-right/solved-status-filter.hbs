@@ -1,0 +1,3 @@
+{{#if siteSettings.solved_enabled}}
+  {{combo-box content=statuses value=status valueAttribute="value" onSelect=(action "changeStatus")}}
+{{/if}}
