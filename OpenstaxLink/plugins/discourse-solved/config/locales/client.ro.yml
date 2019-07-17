@@ -1,0 +1,26 @@
+# encoding: utf-8
+#
+# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+#
+# To work with us on translations, join this project:
+# https://www.transifex.com/projects/p/discourse-org/
+
+ro:
+  js:
+    notifications:
+      alt:
+        solved:
+          accepted_notification: "acceptat"
+    solved:
+      title: "Rezolvat"
+      allow_accepted_answers: "Permiteți inițiatorului subiectului și personalului să marcheze un răspuns ca soluție"
+      accept_answer: "Selectați acest mesaj dacă rezolvă problema"
+      has_no_accepted_answer: "Acest subiect nu are soluție"
+      unaccept_answer: "Deselectați dacă nu mai rezolvă problema"
+      accepted_answer: "Soluție"
+      solution: "Soluție"
+      topic_status_filter:
+        all: "tot"
+    topic_statuses:
+      solved:
+        help: "Acest subiect are o soluție"

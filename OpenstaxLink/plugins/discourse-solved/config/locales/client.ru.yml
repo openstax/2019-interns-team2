@@ -1,0 +1,35 @@
+# encoding: utf-8
+#
+# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+#
+# To work with us on translations, join this project:
+# https://www.transifex.com/projects/p/discourse-org/
+
+ru:
+  js:
+    notifications:
+      alt:
+        solved:
+          accepted_notification: "принято"
+    solved:
+      title: "Решение"
+      allow_accepted_answers: "Разрешить ответы"
+      accept_answer: "Выберите, если этот ответ решает проблему"
+      has_no_accepted_answer: "Эта тема не имеет решения"
+      unaccept_answer: "Отмените выбор, если этот ответ больше не решает проблему"
+      accepted_answer: "Подтвержденный ответ"
+      solution: "Ответ"
+      solution_summary:
+        one: "Подтвержденный ответ"
+        few: "Подтвержденных ответов"
+        many: "Подтвержденных ответов"
+        other: "Подтвержденных ответов"
+      accepted_html: "{{icon}} Решен <span class='by'> - <a href data-user-card='{{username_lower}}'>{{username}}</a></span> в <a href='{{post_path}}' class='back'>посте #{{post_number}}</a>"
+      accepted_notification: "<p><span>{{username}}</span> {{description}}</p>"
+      topic_status_filter:
+        all: "все"
+        solved: "решен"
+        unsolved: "нерешенный"
+    topic_statuses:
+      solved:
+        help: "В этой теме есть ответ"

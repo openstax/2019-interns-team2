@@ -1,0 +1,73 @@
+.post-controls .accepted,
+.fa.accepted,
+.accepted-text {
+  color: green;
+  .d-icon {
+    color: currentColor;
+  }
+}
+
+.topic-body {
+  .solved-container {
+    display: flex;
+
+    .btn {
+      background-color: blend-primary-secondary(5%);
+      padding: 0.5em;
+    }
+  }
+
+  .solve,
+  .solved {
+    text-align: center;
+
+    .d-icon {
+      margin-right: 0.5em;
+    }
+  }
+
+  .solved {
+    color: green;
+    flex: 1;
+
+    &.btn .d-icon {
+      color: green;
+    }
+  }
+
+  .solve {
+    flex: 2;
+  }
+}
+
+.post-controls button.accepted {
+  &:active {
+    box-shadow: none;
+  }
+
+  &.btn-flat:hover .d-icon {
+    color: green;
+  }
+}
+
+.post-controls {
+  .unaccepted,
+  .accepted {
+    &.btn-icon-text {
+      .d-icon {
+        margin-right: 0.3em;
+      }
+    }
+  }
+}
+
+.post-controls .accepted-text {
+  display: inline-block;
+  font-size: inherit;
+  margin-right: -3px;
+  z-index: 2;
+}
+
+aside.quote .title.title-only {
+  padding: 12px;
+}

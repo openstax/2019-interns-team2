@@ -1,0 +1,33 @@
+# encoding: utf-8
+#
+# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+#
+# To work with us on translations, join this project:
+# https://www.transifex.com/projects/p/discourse-org/
+
+fr:
+  js:
+    notifications:
+      alt:
+        solved:
+          accepted_notification: "accepté"
+    solved:
+      title: "Solutions"
+      allow_accepted_answers: "Autoriser l'auteur du sujet et les responsables à marquer une réponse comme solution"
+      accept_answer: "Sélectionner si cette réponse résout le problème"
+      has_no_accepted_answer: "Ce sujet n'a pas de solution"
+      unaccept_answer: "Désélectionner si cette réponse ne résout plus le problème"
+      accepted_answer: "Solution"
+      solution: "Solution"
+      solution_summary:
+        one: "solution"
+        other: "solutions"
+      accepted_html: "{{icon}} Résolu <span class='by'>par <a href data-user-card='{{username_lower}}'>{{username}}</a></span> dans le <a href='{{post_path}}' class='back'>message #{{post_number}}</a>"
+      accepted_notification: "<p><span>{{username}}</span> {{description}}</p>"
+      topic_status_filter:
+        all: "tout"
+        solved: "résolu"
+        unsolved: "non résolu"
+    topic_statuses:
+      solved:
+        help: "Ce sujet a une solution"

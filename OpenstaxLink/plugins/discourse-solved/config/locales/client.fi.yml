@@ -1,0 +1,31 @@
+# encoding: utf-8
+#
+# Never edit this file. It will be overwritten when translations are pulled from Transifex.
+#
+# To work with us on translations, join this project:
+# https://www.transifex.com/projects/p/discourse-org/
+
+fi:
+  js:
+    notifications:
+      alt:
+        solved:
+          accepted_notification: "hyväksyi"
+    solved:
+      title: "Ratkaisemat"
+      allow_accepted_answers: "Salli aiheen omistajan ja henkilökunnan merkitä viesti ratkaisuksi"
+      accept_answer: "Valitse, tämä vastaus ratkaisee ongelman"
+      has_no_accepted_answer: "Tähän aiheeseen ei ole ratkaisua"
+      unaccept_answer: "Kumoa valinta, tämä vastaus ei enää ratkaise ongelmaa"
+      accepted_answer: "Ratkaisu"
+      solution: "Ratkaisu"
+      solution_summary:
+        one: "ratkaisu"
+        other: "ratkaisut"
+      accepted_html: "{{icon}} <span class='by'><a href data-user-card='{{username_lower}}'>{{username}}</a></span> ratkaisi <a href='{{post_path}}' class='back'>viestissä #{{post_number}}</a>"
+      accepted_notification: "<p><span>{{username}}</span> {{description}}</p>"
+      topic_status_filter:
+        all: "kaikki"
+    topic_statuses:
+      solved:
+        help: "Tämä aihe on ratkaistu"
